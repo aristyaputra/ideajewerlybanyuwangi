@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Waterfurnace.ZebraPrint
+</name>
+</assembly>
+<members>
+<member name="T:Waterfurnace.ZebraPrint.SECURITY_ATTRIBUTES">
+	<summary>
+ Structure for CreateFile.  Used only to fill requirement
+ </summary>
+</member><member name="M:Waterfurnace.ZebraPrint.StartWrite(System.String)">
+	<summary>
+ This function must be called first.  Printer path must be a COM Port or a UNC path.
+ </summary>
+</member><member name="M:Waterfurnace.ZebraPrint.Write(System.String)">
+	<summary>
+ This will write a command to the printer.
+ </summary>
+</member><member name="M:Waterfurnace.ZebraPrint.EndWrite">
+	<summary>
+ This function must be called after writing to the zebra printer.
+ </summary>
+</member><member name="T:Waterfurnace.ZebraPrint">
+	<summary>
+ This class can print zebra labels to either a network share, LPT, or COM port.
+ 
+ Programmer: Rick Chronister
+ </summary>
+	<remarks>Only tested for network share, but in theory works for LPT and COM.</remarks>
+</member>
+</members>
+</doc>
