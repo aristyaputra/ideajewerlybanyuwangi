@@ -24,6 +24,10 @@ Partial Class frmpurchase_langsung
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpurchase_langsung))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -32,12 +36,11 @@ Partial Class frmpurchase_langsung
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.Button1 = New DevExpress.XtraEditors.SimpleButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -70,6 +73,22 @@ Partial Class frmpurchase_langsung
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.MtgcComboBox3 = New MTGCComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.colno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colitem = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colitemnm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.coldesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colqty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_Qtyditerima = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colunit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.coltotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gram = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pergram = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KdPotongan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kerusakan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Potongan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Potongan2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Net = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.cbo_akun = New MTGCComboBox()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -136,6 +155,10 @@ Partial Class frmpurchase_langsung
         Me.TabList = New DevExpress.XtraTab.XtraTabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupControl6 = New DevExpress.XtraEditors.GroupControl()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.txt_net = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.txt_potongan = New System.Windows.Forms.TextBox()
         Me.txt_jmlberat = New System.Windows.Forms.TextBox()
         Me.txt_jmlqty = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
@@ -166,6 +189,7 @@ Partial Class frmpurchase_langsung
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
+        Me.lbl_is_cucian = New System.Windows.Forms.Label()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl9 = New DevExpress.XtraEditors.GroupControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
@@ -209,26 +233,6 @@ Partial Class frmpurchase_langsung
         Me.btn_browse = New DevExpress.XtraEditors.SimpleButton()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.txt_save_path = New System.Windows.Forms.TextBox()
-        Me.colno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colitem = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colitemnm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.coldesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colqty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Qtyditerima = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colunit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.coltotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.gram = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.pergram = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KdPotongan = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kerusakan = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Potongan = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Potongan2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Net = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.txt_potongan = New System.Windows.Forms.TextBox()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.txt_net = New System.Windows.Forms.TextBox()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -799,6 +803,122 @@ Partial Class frmpurchase_langsung
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(960, 180)
         Me.DataGridView1.TabIndex = 10
+        '
+        'colno
+        '
+        Me.colno.HeaderText = "No"
+        Me.colno.Name = "colno"
+        Me.colno.Width = 40
+        '
+        'colitem
+        '
+        Me.colitem.HeaderText = "Kode Barang"
+        Me.colitem.Name = "colitem"
+        Me.colitem.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colitem.Width = 120
+        '
+        'colitemnm
+        '
+        Me.colitemnm.HeaderText = "Nama Barang"
+        Me.colitemnm.Name = "colitemnm"
+        Me.colitemnm.Width = 220
+        '
+        'coldesc
+        '
+        Me.coldesc.HeaderText = "Keterangan"
+        Me.coldesc.Name = "coldesc"
+        Me.coldesc.Width = 105
+        '
+        'colqty
+        '
+        Me.colqty.HeaderText = "Qty"
+        Me.colqty.Name = "colqty"
+        Me.colqty.Width = 80
+        '
+        'Col_Qtyditerima
+        '
+        Me.Col_Qtyditerima.HeaderText = "Qty Diterima"
+        Me.Col_Qtyditerima.Name = "Col_Qtyditerima"
+        Me.Col_Qtyditerima.Visible = False
+        Me.Col_Qtyditerima.Width = 112
+        '
+        'colunit
+        '
+        Me.colunit.HeaderText = "Unit"
+        Me.colunit.Name = "colunit"
+        Me.colunit.Width = 75
+        '
+        'colprice
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colprice.DefaultCellStyle = DataGridViewCellStyle2
+        Me.colprice.HeaderText = "Harga"
+        Me.colprice.Name = "colprice"
+        Me.colprice.Width = 112
+        '
+        'coltotal
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coltotal.DefaultCellStyle = DataGridViewCellStyle3
+        Me.coltotal.HeaderText = "Total"
+        Me.coltotal.Name = "coltotal"
+        Me.coltotal.Width = 138
+        '
+        'gram
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N0"
+        DataGridViewCellStyle4.NullValue = "0"
+        Me.gram.DefaultCellStyle = DataGridViewCellStyle4
+        Me.gram.HeaderText = "Gram"
+        Me.gram.Name = "gram"
+        Me.gram.Width = 80
+        '
+        'pergram
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "N0"
+        DataGridViewCellStyle5.NullValue = "0"
+        Me.pergram.DefaultCellStyle = DataGridViewCellStyle5
+        Me.pergram.HeaderText = "Per Gram"
+        Me.pergram.Name = "pergram"
+        Me.pergram.Width = 112
+        '
+        'KdPotongan
+        '
+        Me.KdPotongan.HeaderText = "Kd. Potongan"
+        Me.KdPotongan.Name = "KdPotongan"
+        Me.KdPotongan.Width = 110
+        '
+        'Kerusakan
+        '
+        Me.Kerusakan.HeaderText = "Ket. Potongan"
+        Me.Kerusakan.Name = "Kerusakan"
+        Me.Kerusakan.Width = 200
+        '
+        'Potongan
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Potongan.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Potongan.HeaderText = "Potongan"
+        Me.Potongan.Name = "Potongan"
+        Me.Potongan.Width = 120
+        '
+        'Potongan2
+        '
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Potongan2.DefaultCellStyle = DataGridViewCellStyle7
+        Me.Potongan2.HeaderText = "Potongan Lain"
+        Me.Potongan2.Name = "Potongan2"
+        Me.Potongan2.Width = 120
+        '
+        'Net
+        '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Net.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Net.HeaderText = "Net"
+        Me.Net.Name = "Net"
+        Me.Net.Width = 130
         '
         'GroupControl2
         '
@@ -1457,14 +1577,14 @@ Partial Class frmpurchase_langsung
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colnoinv, Me.colsupp, Me.coldate, Me.colsubtotal, Me.colfreight, Me.coltax, Me.colamount, Me.coldescript, Me.colcetak})
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1498,8 +1618,8 @@ Partial Class frmpurchase_langsung
         '
         'colsubtotal
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colsubtotal.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colsubtotal.DefaultCellStyle = DataGridViewCellStyle10
         Me.colsubtotal.HeaderText = "Sub Total"
         Me.colsubtotal.Name = "colsubtotal"
         Me.colsubtotal.ReadOnly = True
@@ -1507,8 +1627,8 @@ Partial Class frmpurchase_langsung
         '
         'colfreight
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colfreight.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colfreight.DefaultCellStyle = DataGridViewCellStyle11
         Me.colfreight.HeaderText = "B. Angkut"
         Me.colfreight.Name = "colfreight"
         Me.colfreight.ReadOnly = True
@@ -1516,8 +1636,8 @@ Partial Class frmpurchase_langsung
         '
         'coltax
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coltax.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coltax.DefaultCellStyle = DataGridViewCellStyle12
         Me.coltax.HeaderText = "PPN"
         Me.coltax.Name = "coltax"
         Me.coltax.ReadOnly = True
@@ -1525,8 +1645,8 @@ Partial Class frmpurchase_langsung
         '
         'colamount
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colamount.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colamount.DefaultCellStyle = DataGridViewCellStyle13
         Me.colamount.HeaderText = "Total"
         Me.colamount.Name = "colamount"
         Me.colamount.ReadOnly = True
@@ -1742,6 +1862,52 @@ Partial Class frmpurchase_langsung
         Me.GroupControl6.Size = New System.Drawing.Size(432, 220)
         Me.GroupControl6.TabIndex = 308
         Me.GroupControl6.Text = "TOTAL"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.BackColor = System.Drawing.Color.Transparent
+        Me.Label39.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.ForeColor = System.Drawing.Color.Black
+        Me.Label39.Location = New System.Drawing.Point(60, 193)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(28, 18)
+        Me.Label39.TabIndex = 296
+        Me.Label39.Text = "Net"
+        '
+        'txt_net
+        '
+        Me.txt_net.BackColor = System.Drawing.Color.Lavender
+        Me.txt_net.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_net.Location = New System.Drawing.Point(97, 191)
+        Me.txt_net.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_net.Name = "txt_net"
+        Me.txt_net.Size = New System.Drawing.Size(166, 23)
+        Me.txt_net.TabIndex = 295
+        Me.txt_net.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.BackColor = System.Drawing.Color.Transparent
+        Me.Label38.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.ForeColor = System.Drawing.Color.Black
+        Me.Label38.Location = New System.Drawing.Point(5, 169)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(85, 18)
+        Me.Label38.TabIndex = 294
+        Me.Label38.Text = "Jml Potongan"
+        '
+        'txt_potongan
+        '
+        Me.txt_potongan.BackColor = System.Drawing.Color.Lavender
+        Me.txt_potongan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_potongan.Location = New System.Drawing.Point(97, 167)
+        Me.txt_potongan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_potongan.Name = "txt_potongan"
+        Me.txt_potongan.Size = New System.Drawing.Size(166, 23)
+        Me.txt_potongan.TabIndex = 293
+        Me.txt_potongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt_jmlberat
         '
@@ -2198,6 +2364,7 @@ Partial Class frmpurchase_langsung
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.Appearance.Options.UseFont = True
         Me.PanelControl3.Appearance.Options.UseForeColor = True
+        Me.PanelControl3.Controls.Add(Me.lbl_is_cucian)
         Me.PanelControl3.Controls.Add(Me.SimpleButton1)
         Me.PanelControl3.Controls.Add(Me.GroupControl9)
         Me.PanelControl3.Controls.Add(Me.Label33)
@@ -2221,6 +2388,19 @@ Partial Class frmpurchase_langsung
         Me.PanelControl3.Size = New System.Drawing.Size(974, 622)
         Me.PanelControl3.TabIndex = 295
         Me.PanelControl3.Visible = False
+        '
+        'lbl_is_cucian
+        '
+        Me.lbl_is_cucian.AutoSize = True
+        Me.lbl_is_cucian.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_is_cucian.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_is_cucian.ForeColor = System.Drawing.Color.Black
+        Me.lbl_is_cucian.Location = New System.Drawing.Point(617, 591)
+        Me.lbl_is_cucian.Name = "lbl_is_cucian"
+        Me.lbl_is_cucian.Size = New System.Drawing.Size(55, 18)
+        Me.lbl_is_cucian.TabIndex = 279
+        Me.lbl_is_cucian.Text = "Supplier"
+        Me.lbl_is_cucian.Visible = False
         '
         'SimpleButton1
         '
@@ -2254,7 +2434,7 @@ Partial Class frmpurchase_langsung
         Me.GroupControl9.Controls.Add(Me.TextBox5)
         Me.GroupControl9.Controls.Add(Me.SimpleButton26)
         Me.GroupControl9.Controls.Add(Me.SimpleButton27)
-        Me.GroupControl9.Location = New System.Drawing.Point(-412, 241)
+        Me.GroupControl9.Location = New System.Drawing.Point(19, 30)
         Me.GroupControl9.LookAndFeel.SkinName = "Office 2010 Silver"
         Me.GroupControl9.LookAndFeel.UseDefaultLookAndFeel = False
         Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -2321,24 +2501,24 @@ Partial Class frmpurchase_langsung
         Me.dg_employee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg_employee.BackgroundColor = System.Drawing.Color.Lavender
         Me.dg_employee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_employee.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_employee.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dg_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_employee.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colkodejenis, Me.coljenis, Me.colbarcode, Me.colweight, Me.Qty_Def_col, Me.Jenis_col, Me.Kategori_Col, Me.Kadar_Col})
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ControlLight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dg_employee.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ControlLight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dg_employee.DefaultCellStyle = DataGridViewCellStyle15
         Me.dg_employee.Location = New System.Drawing.Point(4, 3)
         Me.dg_employee.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dg_employee.Name = "dg_employee"
@@ -2425,24 +2605,24 @@ Partial Class frmpurchase_langsung
         Me.dg_marketing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg_marketing.BackgroundColor = System.Drawing.Color.Lavender
         Me.dg_marketing.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_marketing.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_marketing.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dg_marketing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_marketing.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.colbarcode2, Me.colweight2, Me.qty_2, Me.Jenis_2, Me.Kategori2, Me.Kadar2})
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ControlLight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dg_marketing.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ControlLight
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dg_marketing.DefaultCellStyle = DataGridViewCellStyle18
         Me.dg_marketing.Location = New System.Drawing.Point(633, 5)
         Me.dg_marketing.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dg_marketing.Name = "dg_marketing"
@@ -2453,8 +2633,8 @@ Partial Class frmpurchase_langsung
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn3.HeaderText = "Kode"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
@@ -2813,162 +2993,6 @@ Partial Class frmpurchase_langsung
         Me.txt_save_path.TabIndex = 277
         Me.txt_save_path.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'colno
-        '
-        Me.colno.HeaderText = "No"
-        Me.colno.Name = "colno"
-        Me.colno.Width = 40
-        '
-        'colitem
-        '
-        Me.colitem.HeaderText = "Kode Barang"
-        Me.colitem.Name = "colitem"
-        Me.colitem.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.colitem.Width = 120
-        '
-        'colitemnm
-        '
-        Me.colitemnm.HeaderText = "Nama Barang"
-        Me.colitemnm.Name = "colitemnm"
-        Me.colitemnm.Width = 220
-        '
-        'coldesc
-        '
-        Me.coldesc.HeaderText = "Keterangan"
-        Me.coldesc.Name = "coldesc"
-        Me.coldesc.Width = 105
-        '
-        'colqty
-        '
-        Me.colqty.HeaderText = "Qty"
-        Me.colqty.Name = "colqty"
-        Me.colqty.Width = 80
-        '
-        'Col_Qtyditerima
-        '
-        Me.Col_Qtyditerima.HeaderText = "Qty Diterima"
-        Me.Col_Qtyditerima.Name = "Col_Qtyditerima"
-        Me.Col_Qtyditerima.Visible = False
-        Me.Col_Qtyditerima.Width = 112
-        '
-        'colunit
-        '
-        Me.colunit.HeaderText = "Unit"
-        Me.colunit.Name = "colunit"
-        Me.colunit.Width = 75
-        '
-        'colprice
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colprice.DefaultCellStyle = DataGridViewCellStyle2
-        Me.colprice.HeaderText = "Harga"
-        Me.colprice.Name = "colprice"
-        Me.colprice.Width = 112
-        '
-        'coltotal
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coltotal.DefaultCellStyle = DataGridViewCellStyle3
-        Me.coltotal.HeaderText = "Total"
-        Me.coltotal.Name = "coltotal"
-        Me.coltotal.Width = 138
-        '
-        'gram
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N0"
-        DataGridViewCellStyle4.NullValue = "0"
-        Me.gram.DefaultCellStyle = DataGridViewCellStyle4
-        Me.gram.HeaderText = "Gram"
-        Me.gram.Name = "gram"
-        Me.gram.Width = 80
-        '
-        'pergram
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "N0"
-        DataGridViewCellStyle5.NullValue = "0"
-        Me.pergram.DefaultCellStyle = DataGridViewCellStyle5
-        Me.pergram.HeaderText = "Per Gram"
-        Me.pergram.Name = "pergram"
-        Me.pergram.Width = 112
-        '
-        'KdPotongan
-        '
-        Me.KdPotongan.HeaderText = "Kd. Potongan"
-        Me.KdPotongan.Name = "KdPotongan"
-        Me.KdPotongan.Width = 110
-        '
-        'Kerusakan
-        '
-        Me.Kerusakan.HeaderText = "Ket. Potongan"
-        Me.Kerusakan.Name = "Kerusakan"
-        Me.Kerusakan.Width = 200
-        '
-        'Potongan
-        '
-        Me.Potongan.HeaderText = "Potongan"
-        Me.Potongan.Name = "Potongan"
-        Me.Potongan.Width = 120
-        '
-        'Potongan2
-        '
-        Me.Potongan2.HeaderText = "Potongan Lain"
-        Me.Potongan2.Name = "Potongan2"
-        Me.Potongan2.Width = 120
-        '
-        'Net
-        '
-        Me.Net.HeaderText = "Net"
-        Me.Net.Name = "Net"
-        Me.Net.Width = 130
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.BackColor = System.Drawing.Color.Transparent
-        Me.Label38.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.ForeColor = System.Drawing.Color.Black
-        Me.Label38.Location = New System.Drawing.Point(5, 169)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(85, 18)
-        Me.Label38.TabIndex = 294
-        Me.Label38.Text = "Jml Potongan"
-        '
-        'txt_potongan
-        '
-        Me.txt_potongan.BackColor = System.Drawing.Color.Lavender
-        Me.txt_potongan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txt_potongan.Location = New System.Drawing.Point(97, 167)
-        Me.txt_potongan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_potongan.Name = "txt_potongan"
-        Me.txt_potongan.Size = New System.Drawing.Size(166, 23)
-        Me.txt_potongan.TabIndex = 293
-        Me.txt_potongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.BackColor = System.Drawing.Color.Transparent
-        Me.Label39.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.ForeColor = System.Drawing.Color.Black
-        Me.Label39.Location = New System.Drawing.Point(60, 193)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(28, 18)
-        Me.Label39.TabIndex = 296
-        Me.Label39.Text = "Net"
-        '
-        'txt_net
-        '
-        Me.txt_net.BackColor = System.Drawing.Color.Lavender
-        Me.txt_net.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txt_net.Location = New System.Drawing.Point(97, 191)
-        Me.txt_net.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_net.Name = "txt_net"
-        Me.txt_net.Size = New System.Drawing.Size(166, 23)
-        Me.txt_net.TabIndex = 295
-        Me.txt_net.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'frmpurchase_langsung
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -3224,6 +3248,10 @@ Partial Class frmpurchase_langsung
     Friend WithEvents SimpleButton26 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton27 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents txt_net As System.Windows.Forms.TextBox
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents txt_potongan As System.Windows.Forms.TextBox
     Friend WithEvents colno As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colitem As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colitemnm As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -3240,8 +3268,5 @@ Partial Class frmpurchase_langsung
     Friend WithEvents Potongan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Potongan2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Net As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label39 As System.Windows.Forms.Label
-    Friend WithEvents txt_net As System.Windows.Forms.TextBox
-    Friend WithEvents Label38 As System.Windows.Forms.Label
-    Friend WithEvents txt_potongan As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_is_cucian As System.Windows.Forms.Label
 End Class

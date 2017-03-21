@@ -50,10 +50,6 @@ Partial Class CucianInStok
         Me.dgcash = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btn_prev = New System.Windows.Forms.Button()
-        Me.btn_next = New System.Windows.Forms.Button()
-        Me.btn_keluar = New DevExpress.XtraEditors.SimpleButton()
-        Me.btn_save2 = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl9 = New DevExpress.XtraEditors.GroupControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -86,6 +82,10 @@ Partial Class CucianInStok
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.SimpleButton26 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton27 = New DevExpress.XtraEditors.SimpleButton()
+        Me.btn_prev = New System.Windows.Forms.Button()
+        Me.btn_next = New System.Windows.Forms.Button()
+        Me.btn_keluar = New DevExpress.XtraEditors.SimpleButton()
+        Me.btn_save2 = New DevExpress.XtraEditors.SimpleButton()
         Me.colid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colnm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Berat = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,6 +95,7 @@ Partial Class CucianInStok
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Kategori = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Berat2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -104,6 +105,7 @@ Partial Class CucianInStok
         Me.Unit2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Kategori3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jenis243 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgbank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgcash, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -260,7 +262,7 @@ Partial Class CucianInStok
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgbank.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgbank.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgbank.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.Berat2, Me.Kadar2, Me.No2, Me.Qty2, Me.Unit2, Me.Kategori3, Me.Jenis243})
+        Me.dgbank.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.Berat2, Me.Kadar2, Me.No2, Me.Qty2, Me.Unit2, Me.Kategori3, Me.Jenis243, Me.price2})
         Me.dgbank.Location = New System.Drawing.Point(527, 42)
         Me.dgbank.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgbank.Name = "dgbank"
@@ -286,7 +288,7 @@ Partial Class CucianInStok
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgcash.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgcash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgcash.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colid, Me.colnm, Me.Berat, Me.Kadar, Me.No, Me.Qty, Me.Unit, Me.Kategori, Me.Jenis})
+        Me.dgcash.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colid, Me.colnm, Me.Berat, Me.Kadar, Me.No, Me.Qty, Me.Unit, Me.Kategori, Me.Jenis, Me.price})
         Me.dgcash.Location = New System.Drawing.Point(9, 42)
         Me.dgcash.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgcash.Name = "dgcash"
@@ -335,66 +337,6 @@ Partial Class CucianInStok
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
         '
-        'btn_prev
-        '
-        Me.btn_prev.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.btn_prev.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_prev.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Previous_24x24
-        Me.btn_prev.Location = New System.Drawing.Point(492, 305)
-        Me.btn_prev.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btn_prev.Name = "btn_prev"
-        Me.btn_prev.Size = New System.Drawing.Size(29, 37)
-        Me.btn_prev.TabIndex = 278
-        Me.btn_prev.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_prev.UseVisualStyleBackColor = False
-        '
-        'btn_next
-        '
-        Me.btn_next.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_next.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_next.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Next_24x24
-        Me.btn_next.Location = New System.Drawing.Point(492, 260)
-        Me.btn_next.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btn_next.Name = "btn_next"
-        Me.btn_next.Size = New System.Drawing.Size(29, 37)
-        Me.btn_next.TabIndex = 277
-        Me.btn_next.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_next.UseVisualStyleBackColor = False
-        '
-        'btn_keluar
-        '
-        Me.btn_keluar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_keluar.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_keluar.Appearance.Options.UseFont = True
-        Me.btn_keluar.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Actions_session_exit_icon__3_
-        Me.btn_keluar.Location = New System.Drawing.Point(795, 622)
-        Me.btn_keluar.LookAndFeel.SkinName = "Office 2010 Blue"
-        Me.btn_keluar.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.btn_keluar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_keluar.Name = "btn_keluar"
-        Me.btn_keluar.Size = New System.Drawing.Size(82, 40)
-        Me.btn_keluar.TabIndex = 23
-        Me.btn_keluar.Text = "KELUAR"
-        '
-        'btn_save2
-        '
-        Me.btn_save2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_save2.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_save2.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.btn_save2.Appearance.Options.UseFont = True
-        Me.btn_save2.Appearance.Options.UseForeColor = True
-        Me.btn_save2.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Save_16x16
-        Me.btn_save2.Location = New System.Drawing.Point(883, 622)
-        Me.btn_save2.LookAndFeel.SkinName = "Office 2010 Blue"
-        Me.btn_save2.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.btn_save2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.btn_save2.Name = "btn_save2"
-        Me.btn_save2.Size = New System.Drawing.Size(123, 40)
-        Me.btn_save2.TabIndex = 22
-        Me.btn_save2.Text = "MASUK STOK"
-        '
         'GroupControl9
         '
         Me.GroupControl9.Appearance.BackColor = System.Drawing.Color.WhiteSmoke
@@ -411,7 +353,7 @@ Partial Class CucianInStok
         Me.GroupControl9.Controls.Add(Me.TextBox5)
         Me.GroupControl9.Controls.Add(Me.SimpleButton26)
         Me.GroupControl9.Controls.Add(Me.SimpleButton27)
-        Me.GroupControl9.Location = New System.Drawing.Point(38, 65)
+        Me.GroupControl9.Location = New System.Drawing.Point(37, 72)
         Me.GroupControl9.LookAndFeel.SkinName = "Office 2010 Silver"
         Me.GroupControl9.LookAndFeel.UseDefaultLookAndFeel = False
         Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -811,6 +753,66 @@ Partial Class CucianInStok
         Me.SimpleButton27.TabIndex = 288
         Me.SimpleButton27.Text = "Upload Dari Excel"
         '
+        'btn_prev
+        '
+        Me.btn_prev.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btn_prev.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_prev.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Previous_24x24
+        Me.btn_prev.Location = New System.Drawing.Point(492, 305)
+        Me.btn_prev.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btn_prev.Name = "btn_prev"
+        Me.btn_prev.Size = New System.Drawing.Size(29, 37)
+        Me.btn_prev.TabIndex = 278
+        Me.btn_prev.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_prev.UseVisualStyleBackColor = False
+        '
+        'btn_next
+        '
+        Me.btn_next.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_next.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_next.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Next_24x24
+        Me.btn_next.Location = New System.Drawing.Point(492, 260)
+        Me.btn_next.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btn_next.Name = "btn_next"
+        Me.btn_next.Size = New System.Drawing.Size(29, 37)
+        Me.btn_next.TabIndex = 277
+        Me.btn_next.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_next.UseVisualStyleBackColor = False
+        '
+        'btn_keluar
+        '
+        Me.btn_keluar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_keluar.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_keluar.Appearance.Options.UseFont = True
+        Me.btn_keluar.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Actions_session_exit_icon__3_
+        Me.btn_keluar.Location = New System.Drawing.Point(795, 622)
+        Me.btn_keluar.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.btn_keluar.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.btn_keluar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_keluar.Name = "btn_keluar"
+        Me.btn_keluar.Size = New System.Drawing.Size(82, 40)
+        Me.btn_keluar.TabIndex = 23
+        Me.btn_keluar.Text = "KELUAR"
+        '
+        'btn_save2
+        '
+        Me.btn_save2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_save2.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save2.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.btn_save2.Appearance.Options.UseFont = True
+        Me.btn_save2.Appearance.Options.UseForeColor = True
+        Me.btn_save2.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Save_16x16
+        Me.btn_save2.Location = New System.Drawing.Point(883, 622)
+        Me.btn_save2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.btn_save2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.btn_save2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.btn_save2.Name = "btn_save2"
+        Me.btn_save2.Size = New System.Drawing.Size(123, 40)
+        Me.btn_save2.TabIndex = 22
+        Me.btn_save2.Text = "MASUK STOK"
+        '
         'colid
         '
         Me.colid.HeaderText = "Kode Barang"
@@ -823,7 +825,7 @@ Partial Class CucianInStok
         Me.colnm.HeaderText = "Nama Barang"
         Me.colnm.Name = "colnm"
         Me.colnm.ReadOnly = True
-        Me.colnm.Width = 220
+        Me.colnm.Width = 215
         '
         'Berat
         '
@@ -841,7 +843,7 @@ Partial Class CucianInStok
         '
         Me.No.HeaderText = "No Pembelian"
         Me.No.Name = "No"
-        Me.No.Width = 130
+        Me.No.Width = 150
         '
         'Qty
         '
@@ -867,6 +869,12 @@ Partial Class CucianInStok
         Me.Jenis.Name = "Jenis"
         Me.Jenis.Visible = False
         '
+        'price
+        '
+        Me.price.HeaderText = "price"
+        Me.price.Name = "price"
+        Me.price.Visible = False
+        '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Kode Barang"
@@ -879,7 +887,7 @@ Partial Class CucianInStok
         Me.DataGridViewTextBoxColumn8.HeaderText = "Nama Barang"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 220
+        Me.DataGridViewTextBoxColumn8.Width = 215
         '
         'Berat2
         '
@@ -897,7 +905,7 @@ Partial Class CucianInStok
         '
         Me.No2.HeaderText = "No Pembelian"
         Me.No2.Name = "No2"
-        Me.No2.Width = 130
+        Me.No2.Width = 150
         '
         'Qty2
         '
@@ -922,6 +930,12 @@ Partial Class CucianInStok
         Me.Jenis243.HeaderText = "Jenis"
         Me.Jenis243.Name = "Jenis243"
         Me.Jenis243.Visible = False
+        '
+        'price2
+        '
+        Me.price2.HeaderText = "Column1"
+        Me.price2.Name = "price2"
+        Me.price2.Visible = False
         '
         'CucianInStok
         '
@@ -1018,6 +1032,7 @@ Partial Class CucianInStok
     Friend WithEvents Unit2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Kategori3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Jenis243 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents price2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colid As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colnm As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Berat As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1027,4 +1042,5 @@ Partial Class CucianInStok
     Friend WithEvents Unit As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Kategori As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Jenis As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents price As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

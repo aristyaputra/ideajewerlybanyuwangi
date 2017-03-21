@@ -48,12 +48,12 @@ Module mdlKasir_Insert
                               ByVal var_weight As Double,
                               ByVal var_perweight As Double,
                             ByVal add_customer As Integer,
-                            ByVal var_terbilang As String)
+                            ByVal var_terbilang As String, ByVal tukar As Double)
         oTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
 
         With cmd_sqlinsert
             .Connection = conn
-            .CommandText = "call sp_cashier ('" & var_no_sales & "','" & Format(var_date_trn, "yyyy-MM-dd") & "','" & var_customer & "','" & var_cust_address & "','" & var_cust_phone & "'," & var_payment_method & "," & var_subtotal & "," & var_discount & "," & Replace(var_tax, "%", "") & "," & var_total & ",'" & var_notes & "','" & var_created_user & "','" & Format(var_created_date, "yyyy-MM-dd") & "','" & var_modified_user & "','" & Format(var_modified_date, "yyyy-MM-dd") & "'," & var_number_asc & ",'" & var_id_item & "','" & var_notes_det & "'," & var_qty & ",'" & var_id_unit & "'," & var_price & "," & var_nominal & "," & var_disc_nom & "," & var_nominal_net & ",'" & var_id_curr & "'," & var_detail & "," & varloop & ",'INSERT'," & var_cogs & "," & var_chk_so & "," & var_term & "," & var_paytermdisc & "," & var_paydisc & "," & flag_member & ",'" & cust_id & "'," & paid & "," & Replace(var_weight, ",", "") & "," & Replace(var_perweight, ",", "") & "," & add_customer & ",'" & var_terbilang & "')"
+            .CommandText = "call sp_cashier ('" & var_no_sales & "','" & Format(var_date_trn, "yyyy-MM-dd") & "','" & var_customer & "','" & var_cust_address & "','" & var_cust_phone & "'," & var_payment_method & "," & var_subtotal & "," & var_discount & "," & Replace(var_tax, "%", "") & "," & var_total & ",'" & var_notes & "','" & var_created_user & "','" & Format(var_created_date, "yyyy-MM-dd") & "','" & var_modified_user & "','" & Format(var_modified_date, "yyyy-MM-dd") & "'," & var_number_asc & ",'" & var_id_item & "','" & var_notes_det & "'," & var_qty & ",'" & var_id_unit & "'," & var_price & "," & var_nominal & "," & var_disc_nom & "," & var_nominal_net & ",'" & var_id_curr & "'," & var_detail & "," & varloop & ",'INSERT'," & var_cogs & "," & var_chk_so & "," & var_term & "," & var_paytermdisc & "," & var_paydisc & "," & flag_member & ",'" & cust_id & "'," & paid & "," & Replace(var_weight, ",", "") & "," & Replace(var_perweight, ",", "") & "," & add_customer & ",'" & var_terbilang & "'," & tukar & ")"
             .CommandType = CommandType.Text
             .Transaction = oTransaction
         End With

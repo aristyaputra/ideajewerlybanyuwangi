@@ -10,7 +10,7 @@ Public Class frmpurchase_langsung
     Public insert As Integer
     Public edit As Integer
     Dim pesan As String
-    Dim TSubTotal As Double
+    Dim TSubTotal, TDisc As Double
     Dim clean_cek_po As Integer
     Public NoBuktiFaktur As String
     Dim var_id_supplier As String
@@ -198,13 +198,13 @@ Public Class frmpurchase_langsung
             .Columns(9).ReadOnly = True
             .Columns(9).DefaultCellStyle.BackColor = Color.WhiteSmoke
             .Columns(10).DefaultCellStyle.BackColor = Color.White
-            .Columns(11).ReadOnly = True
+            .Columns(11).ReadOnly = False
             .Columns(11).DefaultCellStyle.BackColor = Color.White
-            .Columns(12).ReadOnly = False
+            .Columns(12).ReadOnly = True
             .Columns(12).DefaultCellStyle.BackColor = Color.WhiteSmoke
-            .Columns(13).ReadOnly = False
+            .Columns(13).ReadOnly = True
             .Columns(13).DefaultCellStyle.BackColor = Color.WhiteSmoke
-            .Columns(14).ReadOnly = True
+            .Columns(14).ReadOnly = False
             .Columns(14).DefaultCellStyle.BackColor = Color.White
         End With
     End Sub
@@ -404,6 +404,7 @@ Public Class frmpurchase_langsung
         Dim rows As Integer
         Dim columnIndex As Integer
         TSubTotal = 0
+        TDisc = 0
         columnIndex = DataGridView1.CurrentCell.ColumnIndex
         If columnIndex = 7 Then
             DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value, 0)
@@ -448,32 +449,31 @@ Public Class frmpurchase_langsung
         '    Exit Sub
         'End If
 
-        If columnIndex = 11 Then
+        If columnIndex = 11 Or columnIndex = 14 Then
             Dim DTPotongan As DataTable
             Dim potonganLain As Double
             Dim Potongan As Double
             Dim net As Double
 
+            Potongan = 0
+
             DataGridView1.Item(11, DataGridView1.CurrentCell.RowIndex).Value = UCase(DataGridView1.Item(11, DataGridView1.CurrentCell.RowIndex).Value)
             DTPotongan = daftar_potongan(DataGridView1.Item(11, DataGridView1.CurrentCell.RowIndex).Value)
-            DataGridView1.Item(12, DataGridView1.CurrentCell.RowIndex).Value = DTPotongan.Rows(0).Item("notes")
+            If DTPotongan.Rows.Count > 0 Then
+                DataGridView1.Item(12, DataGridView1.CurrentCell.RowIndex).Value = DTPotongan.Rows(0).Item("notes")
 
-            Potongan = DTPotongan.Rows(0).Item("potongan")
-            DataGridView1.Item(13, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Potongan, 0)
+                Potongan = DTPotongan.Rows(0).Item("potongan")
+                DataGridView1.Item(13, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Potongan, 0)
 
-
+            End If
             potonganLain = Replace(DataGridView1.Item(14, DataGridView1.CurrentCell.RowIndex).Value, ",", "")
+
             net = Replace(DataGridView1.Item(8, DataGridView1.CurrentCell.RowIndex).Value, ",", "") - Potongan - potonganLain
 
             DataGridView1.Item(15, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(net, 0)
         End If
 
-        rows = DataGridView1.Rows.Count - 1
-        Dim i As Integer
-        For i = 0 To rows
-            TSubTotal = TSubTotal + Replace(DataGridView1.Item(8, i).Value, ",", "")
-        Next
-        txt_subtotal.Text = FormatNumber(TSubTotal, 0)
+        
         hitung_nominal()
     End Sub
 
@@ -482,6 +482,17 @@ Public Class frmpurchase_langsung
         Dim TNett As Double
         Dim Ttotal As Double
         Dim Tchange As Double
+        Dim TPotongan, TBersih As Double
+        Dim rows As Integer
+        rows = DataGridView1.Rows.Count - 1
+        Dim i As Integer
+        For i = 0 To rows
+            TSubTotal = TSubTotal + Replace(DataGridView1.Item(8, i).Value, ",", "")
+            TDisc = TDisc + Replace(DataGridView1.Item(13, i).Value, ",", "") + Replace(DataGridView1.Item(14, i).Value, ",", "")
+        Next
+        txt_subtotal.Text = FormatNumber(TSubTotal, 0)
+        txt_potongan.Text = FormatNumber(TDisc, 0)
+
 
         TNett = 0
         Ttotal = 0
@@ -491,11 +502,13 @@ Public Class frmpurchase_langsung
         TNett = CDbl(Replace(txt_subtotal.Text, ",", "")) - ((CDbl(Replace(txt_subtotal.Text, ",", ""))) * CDbl(Replace(txt_disc.Text, "%", "")) / 100)
         txt_netto.Text = FormatNumber(TNett, 0)
         Ttotal = TNett + (TNett * (CDbl(Replace(txt_tax.Text, "%", "")) / 100)) + CDbl(Replace(txt_freight.Text, ",", ""))
+        TPotongan = CDbl(Replace(txt_potongan.Text, ",", ""))
+        TBersih = TNett - TPotongan
 
         'menghitung total
         txt_amount.Text = FormatNumber(Ttotal, 0)
 
-
+        txt_net.Text = FormatNumber(TBersih, 0)
         Dim jmlqty, jmlberat As Double
         For a As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1(4, a).Value > 0 Or DataGridView1(4, a).Value <> Nothing Then
@@ -611,6 +624,7 @@ Public Class frmpurchase_langsung
                 alertControl_warning.Show(Me, info)
                 Exit Sub
             End If
+
         End If
 
         If cbo_paymethod.Text = "" Then
@@ -638,18 +652,40 @@ Public Class frmpurchase_langsung
             End If
         Next
         If b > 0 Then
-            pesan = MsgBox("Apakah barang akan masuk cucian?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation")
-            If pesan = vbYes Then
+            If insert = 1 Then
+                pesan = MsgBox("Apakah barang akan masuk cucian?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation")
+                If pesan = vbYes Then
+                    insert_data_tocucian()
+                Else
+                    insert_data()
+                End If
+            ElseIf edit = 1 And lbl_is_cucian.Text = 1 Then
+                If select_validate("Purchase Direct Cucian", Trim(txt_inv_no.Text)) > 0 Then
+                    Dim info As AlertInfo = New AlertInfo("Cek Kevaliditasan Data", "Cucian Sudah Masuk Stok" & vbCrLf & "Tidak dapat merubah data")
+                    alertControl_warning.Show(Me, info)
+                    Exit Sub
+                End If
                 insert_data_tocucian()
-            Else
+            ElseIf edit = 1 And lbl_is_cucian.Text = 0 Then
                 insert_data()
             End If
             'Exit Sub
         Else
-            pesan = MsgBox("Apakah barang akan masuk cucian?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation")
-            If pesan = vbYes Then
+            If insert = 1 Then
+                pesan = MsgBox("Apakah barang akan masuk cucian?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation")
+                If pesan = vbYes Then
+                    insert_data_tocucian()
+                Else
+                    insert_data()
+                End If
+            ElseIf edit = 1 And lbl_is_cucian.Text = 1 Then
+                If select_validate("Purchase Direct Cucian", Trim(txt_inv_no.Text)) > 0 Then
+                    Dim info As AlertInfo = New AlertInfo("Cek Kevaliditasan Data", "Cucian Sudah Masuk Stok" & vbCrLf & "Tidak dapat merubah data")
+                    alertControl_warning.Show(Me, info)
+                    Exit Sub
+                End If
                 insert_data_tocucian()
-            Else
+            ElseIf edit = 1 And lbl_is_cucian.Text = 0 Then
                 insert_data()
             End If
         End If
@@ -681,14 +717,14 @@ Public Class frmpurchase_langsung
                             var_id_supplier, var_pay_method, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), _
                             txt_subtotal.Text, txt_freight.Text, Replace(txt_tax.Text, "%", ""), txt_amount.Text, Trim(txt_comment.Text), _
                             username, Format(server_datetime(), "yyyy-MM-dd"), username, Format(server_datetime(), "yyyy-MM-dd"), _
-                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0)
+                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0, "", 0, 0, 0)
             For i = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Item(1, i).Value <> Nothing And Trim(DataGridView1.Item(1, i).Value) <> "" Then
                     Call insert_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
                                                         0, 0, 0, "", "", Format(server_datetime(), "yyyy-MM-dd"), "", Format(server_datetime(), "yyyy-MM-dd"), _
                                                         DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, _
                                                         DataGridView1.Item(4, i).Value, DataGridView1.Item(6, i).Value, DataGridView1.Item(7, i).Value, DataGridView1.Item(8, i).Value, _
-                                                        txt_curr.Text, 1, i, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""))
+                                                        txt_curr.Text, 1, i, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""), DataGridView1.Item(11, i).Value, Replace(DataGridView1.Item(13, i).Value, ",", ""), Replace(DataGridView1.Item(14, i).Value, ",", ""), 0)
                 End If
                 'Call calculate_cogs(txt_date.Value, DataGridView1.Item(1, i).Value)
             Next
@@ -755,14 +791,14 @@ Public Class frmpurchase_langsung
                             var_id_supplier, var_pay_method, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), _
                             txt_subtotal.Text, txt_freight.Text, Replace(txt_tax.Text, "%", ""), txt_amount.Text, Trim(txt_comment.Text), _
                             username, Format(server_datetime(), "yyyy-MM-dd"), username, Format(server_datetime(), "yyyy-MM-dd"), _
-                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0)
+                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0, "", 0, 0, 0)
             For i = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Item(1, i).Value <> Nothing And Trim(DataGridView1.Item(1, i).Value) <> "" Then
                     Call update_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
                                                         0, 0, 0, "", "", Format(server_datetime(), "yyyy-MM-dd"), "", Format(server_datetime(), "yyyy-MM-dd"), _
                                                         DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, _
                                                         DataGridView1.Item(4, i).Value, DataGridView1.Item(6, i).Value, DataGridView1.Item(7, i).Value, DataGridView1.Item(8, i).Value, _
-                                                        txt_curr.Text, 1, i, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""))
+                                                        txt_curr.Text, 1, i, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""), DataGridView1.Item(11, i).Value, Replace(DataGridView1.Item(13, i).Value, ",", ""), Replace(DataGridView1.Item(14, i).Value, ",", ""), 0)
                 End If
                 'Call calculate_cogs(txt_date.Value, DataGridView1.Item(1, i).Value)
             Next
@@ -836,18 +872,18 @@ Public Class frmpurchase_langsung
 
         If insert = 1 Then
             'Call delete_i_cogs()
-            Call insert_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", _
+            Call insert_purchase_langsung_tocucian(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", _
                             var_id_supplier, var_pay_method, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), _
                             txt_subtotal.Text, txt_freight.Text, Replace(txt_tax.Text, "%", ""), txt_amount.Text, Trim(txt_comment.Text), _
                             username, Format(server_datetime(), "yyyy-MM-dd"), username, Format(server_datetime(), "yyyy-MM-dd"), _
-                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0)
+                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0, "", 0, 0, 1)
             For i = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Item(1, i).Value <> Nothing And Trim(DataGridView1.Item(1, i).Value) <> "" Then
-                    Call insert_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
+                    Call insert_purchase_langsung_tocucian(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
                                                         0, 0, 0, "", "", Format(server_datetime(), "yyyy-MM-dd"), "", Format(server_datetime(), "yyyy-MM-dd"), _
                                                         DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, _
                                                         DataGridView1.Item(4, i).Value, DataGridView1.Item(6, i).Value, DataGridView1.Item(7, i).Value, DataGridView1.Item(8, i).Value, _
-                                                        txt_curr.Text, 1, i, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""))
+                                                        txt_curr.Text, 1, i, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""), DataGridView1.Item(11, i).Value, Replace(DataGridView1.Item(13, i).Value, ",", ""), Replace(DataGridView1.Item(14, i).Value, ",", ""), 1)
                 End If
                 'Call calculate_cogs(txt_date.Value, DataGridView1.Item(1, i).Value)
             Next
@@ -855,36 +891,36 @@ Public Class frmpurchase_langsung
             If param_sukses = True Then
                 Dim info As AlertInfo = New AlertInfo(msgtitle_save_success, msgbox_save_success)
                 alertControl_success.Show(Me, info)
-                GroupControl9.Visible = True
-                view_data_employee()
+                ' GroupControl9.Visible = True
+                ' view_data_employee()
 
                 update_no_trans(txt_date.Value, "PURCHASE_DIRECT")
 
-                dg_employee.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-                dg_marketing.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                'dg_employee.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                'dg_marketing.SelectionMode = DataGridViewSelectionMode.FullRowSelect
 
-                Dim row_jml As Integer
-                dg_marketing.Rows.Clear()
-                For a As Integer = 0 To dg_employee.Rows.Count - 1
-                    For z As Integer = 0 To DataGridView1.Item(4, a).Value - 1
-                        dg_marketing.Rows.Add(1)
-                        If dg_marketing.Rows.Count = 1 Then
-                            dg_marketing.CurrentCell = dg_marketing(0, 0)
-                        ElseIf dg_marketing.Rows.Count > 1 Then
-                            dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
-                        End If
-                        row_jml = dg_marketing.Rows.GetLastRow(DataGridViewElementStates.Displayed)
-                        dg_marketing.Item(0, row_jml).Value = dg_employee.Item(0, a).Value
-                        dg_marketing.Item(1, row_jml).Value = dg_employee.Item(1, a).Value
-                        dg_marketing.Item(2, row_jml).Value = dg_employee.Item(2, a).Value
-                        dg_marketing.Item(3, row_jml).Value = dg_employee.Item(3, a).Value
-                        dg_marketing.Item(4, row_jml).Value = dg_employee.Item(4, a).Value
-                        dg_marketing.Item(5, row_jml).Value = dg_employee.Item(5, a).Value
-                        dg_marketing.Item(6, row_jml).Value = dg_employee.Item(6, a).Value
-                        dg_marketing.Item(7, row_jml).Value = dg_employee.Item(7, a).Value
-                        ' dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
-                    Next
-                Next
+                'Dim row_jml As Integer
+                'dg_marketing.Rows.Clear()
+                'For a As Integer = 0 To dg_employee.Rows.Count - 1
+                '    For z As Integer = 0 To DataGridView1.Item(4, a).Value - 1
+                '        dg_marketing.Rows.Add(1)
+                '        If dg_marketing.Rows.Count = 1 Then
+                '            dg_marketing.CurrentCell = dg_marketing(0, 0)
+                '        ElseIf dg_marketing.Rows.Count > 1 Then
+                '            dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
+                '        End If
+                '        row_jml = dg_marketing.Rows.GetLastRow(DataGridViewElementStates.Displayed)
+                '        dg_marketing.Item(0, row_jml).Value = dg_employee.Item(0, a).Value
+                '        dg_marketing.Item(1, row_jml).Value = dg_employee.Item(1, a).Value
+                '        dg_marketing.Item(2, row_jml).Value = dg_employee.Item(2, a).Value
+                '        dg_marketing.Item(3, row_jml).Value = dg_employee.Item(3, a).Value
+                '        dg_marketing.Item(4, row_jml).Value = dg_employee.Item(4, a).Value
+                '        dg_marketing.Item(5, row_jml).Value = dg_employee.Item(5, a).Value
+                '        dg_marketing.Item(6, row_jml).Value = dg_employee.Item(6, a).Value
+                '        dg_marketing.Item(7, row_jml).Value = dg_employee.Item(7, a).Value
+                '        ' dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
+                '    Next
+                'Next
 
 
                 'pesan = MsgBox("Cetak Faktur?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Konfirmasi")
@@ -910,18 +946,18 @@ Public Class frmpurchase_langsung
             End If
             ' Call delete_i_cogs()
 
-            Call update_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", _
+            Call update_purchase_langsung_cucian(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", _
                             var_id_supplier, var_pay_method, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), _
                             txt_subtotal.Text, txt_freight.Text, Replace(txt_tax.Text, "%", ""), txt_amount.Text, Trim(txt_comment.Text), _
                             username, Format(server_datetime(), "yyyy-MM-dd"), username, Format(server_datetime(), "yyyy-MM-dd"), _
-                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0)
+                            0, "", "", 0, "", 0, 0, Trim(txt_curr.Text), 0, 0, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, "", Replace(txt_kurs.Text, ",", ""), 0, 0, "", 0, 0, 1)
             For i = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Item(1, i).Value <> Nothing And Trim(DataGridView1.Item(1, i).Value) <> "" Then
-                    Call update_purchase_langsung(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
-                                                        0, 0, 0, "", "", Format(server_datetime(), "yyyy-MM-dd"), "", Format(server_datetime(), "yyyy-MM-dd"), _
-                                                        DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, _
-                                                        DataGridView1.Item(4, i).Value, DataGridView1.Item(6, i).Value, DataGridView1.Item(7, i).Value, DataGridView1.Item(8, i).Value, _
-                                                        txt_curr.Text, 1, i, "UPDATE", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""))
+                    Call update_purchase_langsung_cucian(Trim(txt_inv_no.Text), Format(txt_date.Value, "yyyy-MM-dd"), "", "", 0, 0, 0, 0, 0, _
+                                                       0, 0, 0, "", "", Format(server_datetime(), "yyyy-MM-dd"), "", Format(server_datetime(), "yyyy-MM-dd"), _
+                                                       DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, _
+                                                       DataGridView1.Item(4, i).Value, DataGridView1.Item(6, i).Value, DataGridView1.Item(7, i).Value, DataGridView1.Item(8, i).Value, _
+                                                       txt_curr.Text, 1, i, "INSERT", 0, var_po, Replace(txt_disc.Text, "%", ""), cbo_akun.Text, DataGridView1.Item(2, i).Value, Replace(txt_kurs.Text, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), Replace(DataGridView1.Item(10, i).Value, ",", ""), DataGridView1.Item(11, i).Value, Replace(DataGridView1.Item(13, i).Value, ",", ""), Replace(DataGridView1.Item(14, i).Value, ",", ""), 1)
                 End If
                 'Call calculate_cogs(txt_date.Value, DataGridView1.Item(1, i).Value)
             Next
@@ -1067,6 +1103,7 @@ Public Class frmpurchase_langsung
         Else
             cbo_paymethod.Text = "Credit"
         End If
+        lbl_is_cucian.Text = DT.Rows(0).Item("is_cucian")
         txt_subtotal.Text = FormatNumber(DT.Rows(0).Item("subtotal"), 0)
         txt_freight.Text = FormatNumber(DT.Rows(0).Item("freight"), 0)
         txt_tax.Text = FormatPercent(DT.Rows(0).Item("tax") / 100, 0)
@@ -1110,12 +1147,18 @@ Public Class frmpurchase_langsung
             DataGridView1.Item(8, i).Value = FormatNumber(DT.Rows(i).Item("nominal"), 0)
             DataGridView1.Item(9, i).Value = FormatNumber(DT.Rows(i).Item("weight"), 2)
             DataGridView1.Item(10, i).Value = FormatNumber(DT.Rows(i).Item("perweight"), 0)
+            DataGridView1.Item(11, i).Value = DT.Rows(i).Item("id_potongan")
+            DataGridView1.Item(12, i).Value = DT.Rows(i).Item("potnotes")
+            DataGridView1.Item(13, i).Value = FormatNumber(DT.Rows(i).Item("disc1"), 0)
+            DataGridView1.Item(14, i).Value = FormatNumber(DT.Rows(i).Item("disc2"), 0)
+            DataGridView1.Item(15, i).Value = FormatNumber(DT.Rows(i).Item("netdetail"), 0)
+
         Next
         txt_kurs.Text = FormatNumber(DT.Rows(0).Item("kurs"), 0)
-        For i = 0 To Rows
-            TSubTotal = TSubTotal + Replace(DataGridView1.Item(8, i).Value, ",", "")
-        Next
-        txt_subtotal.Text = FormatNumber(TSubTotal, 0)
+        'For i = 0 To Rows
+        '    TSubTotal = TSubTotal + Replace(DataGridView1.Item(8, i).Value, ",", "")
+        'Next
+        'txt_subtotal.Text = FormatNumber(TSubTotal, 0)
         If DT.Rows(0).Item("tax") > 0 Then
             chk_ppn.Checked = True
         Else
@@ -1211,6 +1254,11 @@ Public Class frmpurchase_langsung
         If edit = 1 Then
             If select_validate("Purchase", Trim(txt_inv_no.Text)) > 0 Then
                 Dim info As AlertInfo = New AlertInfo("Cek Kevaliditasan Data", "Faktur ini telah lunas")
+                alertControl_warning.Show(Me, info)
+                Exit Sub
+            End If
+            If select_validate("Purchase Direct Cucian", Trim(txt_inv_no.Text)) > 0 Then
+                Dim info As AlertInfo = New AlertInfo("Cek Kevaliditasan Data", "Cucian Sudah Masuk Stok" & vbCrLf & "Tidak dapat merubah data")
                 alertControl_warning.Show(Me, info)
                 Exit Sub
             End If

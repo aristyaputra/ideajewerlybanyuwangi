@@ -350,6 +350,12 @@
     <Compile Include="Form\Manufaktur\PerintahKerja\frmWO.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\Master\Item\frmsetpotbeli.Designer.vb">
+      <DependentUpon>frmsetpotbeli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Master\Item\frmsetpotbeli.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\Menu\Dashboard\Start.Designer.vb">
       <DependentUpon>Start.vb</DependentUpon>
     </Compile>
@@ -1623,6 +1629,9 @@
     <EmbeddedResource Include="Form\Manufaktur\PerintahKerja\frmWO.resx">
       <DependentUpon>frmWO.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Master\Item\frmsetpotbeli.resx">
+      <DependentUpon>frmsetpotbeli.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Menu\Dashboard\Start.resx">
       <DependentUpon>Start.vb</DependentUpon>

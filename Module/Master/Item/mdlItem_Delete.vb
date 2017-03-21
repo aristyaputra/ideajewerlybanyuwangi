@@ -115,6 +115,26 @@ Module mdlItem_Delete
         End Try
     End Sub
 
+    Public Sub delete_potonganjenis(ByVal var_itemcat_id As String, ByVal var_itemcat_nm As Double, ByVal description As String, ByVal transid As String)
+        oTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
+        With cmd_sqldelete
+            .Connection = conn
+            .CommandText = "call sp_potonganjenis ('" & var_itemcat_id & "'," & var_itemcat_nm & ",'" & description & "','" & transid & "')"
+            .CommandType = CommandType.Text
+            .Transaction = oTransaction
+        End With
+        Try
+            cmd_sqldelete.ExecuteNonQuery()
+            oTransaction.Commit()
+            param_sukses = True
+        Catch ex As Exception
+            Dim info As AlertInfo = New AlertInfo("Error", ex.Message)
+            alertControl_error.Show(MainMenu, info)
+            oTransaction.Rollback()
+            param_sukses = False
+        End Try
+    End Sub
+
 
     Public Sub delete_itembrand(ByVal var_itemcat_id As String, ByVal var_itemcat_nm As String, ByVal description As String, ByVal transid As String, ByVal disc As Double)
         oTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)

@@ -14,7 +14,7 @@ Module mdlPembelianLangsung_View
         Try
             With cmd_sqlselect
                 .Connection = conn
-                .CommandText = "select case when potongan is null then 0 else potongan end from mst_potongan_rusak where id_potongan = '" & id & "'"
+                .CommandText = "select case when potongan is null then 0 else potongan end as potongan, notes from mst_potongan_rusak where id_potongan = '" & id & "'"
                 .CommandType = CommandType.Text
             End With
             mysql_adapter.SelectCommand = cmd_sqlselect

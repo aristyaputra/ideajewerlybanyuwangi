@@ -22,19 +22,19 @@ Partial Class frmcashier
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmcashier))
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.colnoinv = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -78,6 +78,9 @@ Partial Class frmcashier
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.NavBarGroupControlContainer8 = New DevExpress.XtraNavBar.NavBarGroupControlContainer()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.NavBarGroupControlContainer1 = New DevExpress.XtraNavBar.NavBarGroupControlContainer()
+        Me.txt_tukarbarang = New System.Windows.Forms.TextBox()
+        Me.NavBarGroup1 = New DevExpress.XtraNavBar.NavBarGroup()
         Me.NavBarGroup6 = New DevExpress.XtraNavBar.NavBarGroup()
         Me.NavBarGroup8 = New DevExpress.XtraNavBar.NavBarGroup()
         Me.btn_save = New System.Windows.Forms.Button()
@@ -177,6 +180,7 @@ Partial Class frmcashier
         Me.NavBarGroupControlContainer5.SuspendLayout()
         Me.NavBarGroupControlContainer6.SuspendLayout()
         Me.NavBarGroupControlContainer8.SuspendLayout()
+        Me.NavBarGroupControlContainer1.SuspendLayout()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl4.SuspendLayout()
         CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -206,14 +210,14 @@ Partial Class frmcashier
         Me.DataGridView2.AllowUserToOrderColumns = True
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colnoinv, Me.colsupp, Me.coldate, Me.colsubtotal, Me.coldisc, Me.coltax, Me.colamount, Me.coldescript, Me.colcetak})
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -247,8 +251,8 @@ Partial Class frmcashier
         '
         'colsubtotal
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colsubtotal.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colsubtotal.DefaultCellStyle = DataGridViewCellStyle2
         Me.colsubtotal.HeaderText = "Sub Total"
         Me.colsubtotal.Name = "colsubtotal"
         Me.colsubtotal.ReadOnly = True
@@ -256,8 +260,8 @@ Partial Class frmcashier
         '
         'coldisc
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coldisc.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coldisc.DefaultCellStyle = DataGridViewCellStyle3
         Me.coldisc.HeaderText = "Diskon"
         Me.coldisc.Name = "coldisc"
         Me.coldisc.ReadOnly = True
@@ -265,8 +269,8 @@ Partial Class frmcashier
         '
         'coltax
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coltax.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coltax.DefaultCellStyle = DataGridViewCellStyle4
         Me.coltax.HeaderText = "PPN"
         Me.coltax.Name = "coltax"
         Me.coltax.ReadOnly = True
@@ -274,8 +278,8 @@ Partial Class frmcashier
         '
         'colamount
         '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colamount.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colamount.DefaultCellStyle = DataGridViewCellStyle5
         Me.colamount.HeaderText = "Total"
         Me.colamount.Name = "colamount"
         Me.colamount.ReadOnly = True
@@ -300,7 +304,7 @@ Partial Class frmcashier
         'GroupControl7
         '
         Me.GroupControl7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupControl7.Appearance.BackColor = System.Drawing.Color.WhiteSmoke
         Me.GroupControl7.Appearance.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupControl7.Appearance.ForeColor = System.Drawing.Color.Black
@@ -389,7 +393,7 @@ Partial Class frmcashier
         Me.Label27.ForeColor = System.Drawing.Color.Black
         Me.Label27.Location = New System.Drawing.Point(17, 102)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(97, 18)
+        Me.Label27.Size = New System.Drawing.Size(94, 18)
         Me.Label27.TabIndex = 32
         Me.Label27.Text = "Teks Pencarian"
         '
@@ -419,7 +423,7 @@ Partial Class frmcashier
         Me.chk_date.Location = New System.Drawing.Point(16, 46)
         Me.chk_date.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.chk_date.Name = "chk_date"
-        Me.chk_date.Size = New System.Drawing.Size(123, 22)
+        Me.chk_date.Size = New System.Drawing.Size(121, 22)
         Me.chk_date.TabIndex = 38
         Me.chk_date.Text = "Batasan Tanggal"
         Me.chk_date.UseVisualStyleBackColor = True
@@ -484,8 +488,8 @@ Partial Class frmcashier
         'GroupControl6
         '
         Me.GroupControl6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl6.Appearance.BackColor = System.Drawing.Color.WhiteSmoke
         Me.GroupControl6.Appearance.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupControl6.Appearance.ForeColor = System.Drawing.Color.Black
@@ -632,10 +636,10 @@ Partial Class frmcashier
         Me.Panel2.Controls.Add(Me.NavBarControl3)
         Me.Panel2.Controls.Add(Me.btn_save)
         Me.Panel2.ForeColor = System.Drawing.Color.Black
-        Me.Panel2.Location = New System.Drawing.Point(206, 128)
+        Me.Panel2.Location = New System.Drawing.Point(206, 98)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(620, 339)
+        Me.Panel2.Size = New System.Drawing.Size(620, 383)
         Me.Panel2.TabIndex = 288
         Me.Panel2.Visible = False
         '
@@ -647,7 +651,7 @@ Partial Class frmcashier
         Me.Button5.ForeColor = System.Drawing.Color.Black
         Me.Button5.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Delete_16x161
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(191, 275)
+        Me.Button5.Location = New System.Drawing.Point(198, 322)
         Me.Button5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(77, 46)
@@ -674,27 +678,28 @@ Partial Class frmcashier
         Me.NavBarControl3.Controls.Add(Me.NavBarGroupControlContainer5)
         Me.NavBarControl3.Controls.Add(Me.NavBarGroupControlContainer6)
         Me.NavBarControl3.Controls.Add(Me.NavBarGroupControlContainer8)
+        Me.NavBarControl3.Controls.Add(Me.NavBarGroupControlContainer1)
         Me.NavBarControl3.ForeColor = System.Drawing.Color.Black
-        Me.NavBarControl3.Groups.AddRange(New DevExpress.XtraNavBar.NavBarGroup() {Me.NavBarGroup5, Me.NavBarGroup6, Me.NavBarGroup8})
+        Me.NavBarControl3.Groups.AddRange(New DevExpress.XtraNavBar.NavBarGroup() {Me.NavBarGroup1, Me.NavBarGroup5, Me.NavBarGroup6, Me.NavBarGroup8})
         Me.NavBarControl3.Location = New System.Drawing.Point(10, 9)
         Me.NavBarControl3.LookAndFeel.SkinName = "Office 2010 Black"
         Me.NavBarControl3.LookAndFeel.UseDefaultLookAndFeel = False
         Me.NavBarControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.NavBarControl3.Name = "NavBarControl3"
         Me.NavBarControl3.OptionsNavPane.ExpandedWidth = 598
-        Me.NavBarControl3.Size = New System.Drawing.Size(598, 239)
+        Me.NavBarControl3.Size = New System.Drawing.Size(598, 302)
         Me.NavBarControl3.StoreDefaultPaintStyleName = True
         Me.NavBarControl3.TabIndex = 281
         Me.NavBarControl3.Text = "No Kas Umum / Bank"
         '
         'NavBarGroup5
         '
-        Me.NavBarGroup5.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NavBarGroup5.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NavBarGroup5.Appearance.Options.UseFont = True
         Me.NavBarGroup5.Caption = "Total"
         Me.NavBarGroup5.ControlContainer = Me.NavBarGroupControlContainer5
         Me.NavBarGroup5.Expanded = True
-        Me.NavBarGroup5.GroupClientHeight = 44
+        Me.NavBarGroup5.GroupClientHeight = 40
         Me.NavBarGroup5.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer
         Me.NavBarGroup5.Name = "NavBarGroup5"
         '
@@ -704,7 +709,7 @@ Partial Class frmcashier
         Me.NavBarGroupControlContainer5.ForeColor = System.Drawing.Color.Black
         Me.NavBarGroupControlContainer5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.NavBarGroupControlContainer5.Name = "NavBarGroupControlContainer5"
-        Me.NavBarGroupControlContainer5.Size = New System.Drawing.Size(590, 40)
+        Me.NavBarGroupControlContainer5.Size = New System.Drawing.Size(590, 36)
         Me.NavBarGroupControlContainer5.TabIndex = 0
         '
         'txt_totalcsh
@@ -713,13 +718,13 @@ Partial Class frmcashier
         Me.txt_totalcsh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_totalcsh.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txt_totalcsh.Enabled = False
-        Me.txt_totalcsh.Font = New System.Drawing.Font("Trebuchet MS", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_totalcsh.Font = New System.Drawing.Font("Trebuchet MS", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_totalcsh.ForeColor = System.Drawing.Color.White
         Me.txt_totalcsh.Location = New System.Drawing.Point(0, 0)
         Me.txt_totalcsh.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_totalcsh.Name = "txt_totalcsh"
         Me.txt_totalcsh.ReadOnly = True
-        Me.txt_totalcsh.Size = New System.Drawing.Size(590, 39)
+        Me.txt_totalcsh.Size = New System.Drawing.Size(590, 35)
         Me.txt_totalcsh.TabIndex = 92
         Me.txt_totalcsh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -729,7 +734,7 @@ Partial Class frmcashier
         Me.NavBarGroupControlContainer6.ForeColor = System.Drawing.Color.Black
         Me.NavBarGroupControlContainer6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.NavBarGroupControlContainer6.Name = "NavBarGroupControlContainer6"
-        Me.NavBarGroupControlContainer6.Size = New System.Drawing.Size(590, 40)
+        Me.NavBarGroupControlContainer6.Size = New System.Drawing.Size(590, 36)
         Me.NavBarGroupControlContainer6.TabIndex = 1
         '
         'TextBox1
@@ -737,12 +742,12 @@ Partial Class frmcashier
         Me.TextBox1.BackColor = System.Drawing.Color.White
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Font = New System.Drawing.Font("Trebuchet MS", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Font = New System.Drawing.Font("Trebuchet MS", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.Color.Black
         Me.TextBox1.Location = New System.Drawing.Point(0, 0)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(590, 39)
+        Me.TextBox1.Size = New System.Drawing.Size(590, 35)
         Me.TextBox1.TabIndex = 134
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -761,30 +766,62 @@ Partial Class frmcashier
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox2.Enabled = False
-        Me.TextBox2.Font = New System.Drawing.Font("Trebuchet MS", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Font = New System.Drawing.Font("Trebuchet MS", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.ForeColor = System.Drawing.Color.Black
         Me.TextBox2.Location = New System.Drawing.Point(0, 0)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(590, 39)
+        Me.TextBox2.Size = New System.Drawing.Size(590, 35)
         Me.TextBox2.TabIndex = 136
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'NavBarGroupControlContainer1
+        '
+        Me.NavBarGroupControlContainer1.Controls.Add(Me.txt_tukarbarang)
+        Me.NavBarGroupControlContainer1.Name = "NavBarGroupControlContainer1"
+        Me.NavBarGroupControlContainer1.Size = New System.Drawing.Size(590, 35)
+        Me.NavBarGroupControlContainer1.TabIndex = 3
+        '
+        'txt_tukarbarang
+        '
+        Me.txt_tukarbarang.BackColor = System.Drawing.Color.White
+        Me.txt_tukarbarang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_tukarbarang.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_tukarbarang.Font = New System.Drawing.Font("Trebuchet MS", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_tukarbarang.ForeColor = System.Drawing.Color.Black
+        Me.txt_tukarbarang.Location = New System.Drawing.Point(0, 0)
+        Me.txt_tukarbarang.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_tukarbarang.Name = "txt_tukarbarang"
+        Me.txt_tukarbarang.Size = New System.Drawing.Size(590, 35)
+        Me.txt_tukarbarang.TabIndex = 93
+        Me.txt_tukarbarang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NavBarGroup1
+        '
+        Me.NavBarGroup1.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NavBarGroup1.Appearance.Options.UseFont = True
+        Me.NavBarGroup1.Caption = "Tukar Barang"
+        Me.NavBarGroup1.ControlContainer = Me.NavBarGroupControlContainer1
+        Me.NavBarGroup1.Expanded = True
+        Me.NavBarGroup1.GroupClientHeight = 39
+        Me.NavBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer
+        Me.NavBarGroup1.Name = "NavBarGroup1"
+        '
         'NavBarGroup6
         '
-        Me.NavBarGroup6.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NavBarGroup6.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NavBarGroup6.Appearance.Options.UseFont = True
         Me.NavBarGroup6.Caption = "Pembayaran"
         Me.NavBarGroup6.ControlContainer = Me.NavBarGroupControlContainer6
         Me.NavBarGroup6.Expanded = True
-        Me.NavBarGroup6.GroupClientHeight = 44
+        Me.NavBarGroup6.GroupClientHeight = 40
         Me.NavBarGroup6.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer
         Me.NavBarGroup6.Name = "NavBarGroup6"
         '
         'NavBarGroup8
         '
-        Me.NavBarGroup8.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NavBarGroup8.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NavBarGroup8.Appearance.Options.UseFont = True
         Me.NavBarGroup8.Caption = "Kembalian"
         Me.NavBarGroup8.ControlContainer = Me.NavBarGroupControlContainer8
@@ -801,7 +838,7 @@ Partial Class frmcashier
         Me.btn_save.ForeColor = System.Drawing.Color.Black
         Me.btn_save.Image = Global.SMARTACCOUNTING.My.Resources.Resources.payment
         Me.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_save.Location = New System.Drawing.Point(276, 275)
+        Me.btn_save.Location = New System.Drawing.Point(283, 322)
         Me.btn_save.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_save.Name = "btn_save"
         Me.btn_save.Size = New System.Drawing.Size(136, 46)
@@ -922,7 +959,7 @@ Partial Class frmcashier
         Me.Label8.ForeColor = System.Drawing.Color.Black
         Me.Label8.Location = New System.Drawing.Point(45, 125)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 18)
+        Me.Label8.Size = New System.Drawing.Size(36, 18)
         Me.Label8.TabIndex = 2
         Me.Label8.Text = "Total"
         '
@@ -1011,7 +1048,7 @@ Partial Class frmcashier
         Me.Label23.ForeColor = System.Drawing.Color.Black
         Me.Label23.Location = New System.Drawing.Point(15, 25)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(63, 18)
+        Me.Label23.Size = New System.Drawing.Size(61, 18)
         Me.Label23.TabIndex = 2
         Me.Label23.Text = "Sub Total"
         '
@@ -1090,8 +1127,8 @@ Partial Class frmcashier
         'GroupControl3
         '
         Me.GroupControl3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl3.Appearance.BackColor = System.Drawing.Color.WhiteSmoke
         Me.GroupControl3.Appearance.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupControl3.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1112,14 +1149,14 @@ Partial Class frmcashier
         '
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colno, Me.colitem, Me.colitemnm, Me.coldesc, Me.colqty, Me.colunit, Me.colprice, Me.coltotal, Me.coldiscount, Me.colTotalNet, Me.colemployee, Me.coltype, Me.gram, Me.pergram})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1159,8 +1196,8 @@ Partial Class frmcashier
         '
         'colqty
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colqty.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colqty.DefaultCellStyle = DataGridViewCellStyle7
         Me.colqty.HeaderText = "Qty"
         Me.colqty.Name = "colqty"
         Me.colqty.Width = 75
@@ -1173,24 +1210,24 @@ Partial Class frmcashier
         '
         'colprice
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colprice.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colprice.DefaultCellStyle = DataGridViewCellStyle8
         Me.colprice.HeaderText = "Harga"
         Me.colprice.Name = "colprice"
         Me.colprice.Width = 114
         '
         'coltotal
         '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coltotal.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coltotal.DefaultCellStyle = DataGridViewCellStyle9
         Me.coltotal.HeaderText = "Total"
         Me.coltotal.Name = "coltotal"
         Me.coltotal.Width = 118
         '
         'coldiscount
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.coldiscount.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.coldiscount.DefaultCellStyle = DataGridViewCellStyle10
         Me.coldiscount.HeaderText = "Diskon (%)"
         Me.coldiscount.Name = "coldiscount"
         Me.coldiscount.Visible = False
@@ -1198,8 +1235,8 @@ Partial Class frmcashier
         '
         'colTotalNet
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTotalNet.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTotalNet.DefaultCellStyle = DataGridViewCellStyle11
         Me.colTotalNet.HeaderText = "Netto"
         Me.colTotalNet.Name = "colTotalNet"
         Me.colTotalNet.Visible = False
@@ -1219,10 +1256,10 @@ Partial Class frmcashier
         '
         'gram
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle25.Format = "N0"
-        DataGridViewCellStyle25.NullValue = Nothing
-        Me.gram.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle12.Format = "N0"
+        DataGridViewCellStyle12.NullValue = Nothing
+        Me.gram.DefaultCellStyle = DataGridViewCellStyle12
         Me.gram.HeaderText = "Gram"
         Me.gram.Name = "gram"
         Me.gram.ReadOnly = True
@@ -1230,10 +1267,10 @@ Partial Class frmcashier
         '
         'pergram
         '
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle26.Format = "N0"
-        DataGridViewCellStyle26.NullValue = Nothing
-        Me.pergram.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.Format = "N0"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.pergram.DefaultCellStyle = DataGridViewCellStyle13
         Me.pergram.HeaderText = "Per Gram"
         Me.pergram.Name = "pergram"
         '
@@ -1353,7 +1390,7 @@ Partial Class frmcashier
         Me.Label32.ForeColor = System.Drawing.Color.Black
         Me.Label32.Location = New System.Drawing.Point(727, 79)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(125, 18)
+        Me.Label32.Size = New System.Drawing.Size(122, 18)
         Me.Label32.TabIndex = 129
         Me.Label32.Text = "Tanggal Permintaan"
         '
@@ -1365,7 +1402,7 @@ Partial Class frmcashier
         Me.Label33.ForeColor = System.Drawing.Color.Black
         Me.Label33.Location = New System.Drawing.Point(727, 40)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(94, 18)
+        Me.Label33.Size = New System.Drawing.Size(93, 18)
         Me.Label33.TabIndex = 128
         Me.Label33.Text = "No Permintaan"
         '
@@ -1377,7 +1414,7 @@ Partial Class frmcashier
         Me.Label34.ForeColor = System.Drawing.Color.Black
         Me.Label34.Location = New System.Drawing.Point(10, 23)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(89, 18)
+        Me.Label34.Size = New System.Drawing.Size(88, 18)
         Me.Label34.TabIndex = 102
         Me.Label34.Text = "No. Transaksi"
         '
@@ -1430,7 +1467,7 @@ Partial Class frmcashier
         Me.CheckBox1.Location = New System.Drawing.Point(14, 43)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(140, 22)
+        Me.CheckBox1.Size = New System.Drawing.Size(137, 22)
         Me.CheckBox1.TabIndex = 133
         Me.CheckBox1.Text = "Pelanggan Tercatat"
         Me.CheckBox1.UseVisualStyleBackColor = False
@@ -1471,7 +1508,7 @@ Partial Class frmcashier
         Me.Label12.ForeColor = System.Drawing.Color.Black
         Me.Label12.Location = New System.Drawing.Point(10, 95)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 18)
+        Me.Label12.Size = New System.Drawing.Size(66, 18)
         Me.Label12.TabIndex = 2
         Me.Label12.Text = "Pelanggan"
         '
@@ -1525,7 +1562,7 @@ Partial Class frmcashier
         Me.Label18.ForeColor = System.Drawing.Color.Black
         Me.Label18.Location = New System.Drawing.Point(727, 79)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(125, 18)
+        Me.Label18.Size = New System.Drawing.Size(122, 18)
         Me.Label18.TabIndex = 129
         Me.Label18.Text = "Tanggal Permintaan"
         '
@@ -1537,7 +1574,7 @@ Partial Class frmcashier
         Me.Label24.ForeColor = System.Drawing.Color.Black
         Me.Label24.Location = New System.Drawing.Point(727, 40)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(94, 18)
+        Me.Label24.Size = New System.Drawing.Size(93, 18)
         Me.Label24.TabIndex = 128
         Me.Label24.Text = "No Permintaan"
         '
@@ -1549,7 +1586,7 @@ Partial Class frmcashier
         Me.Label29.ForeColor = System.Drawing.Color.Black
         Me.Label29.Location = New System.Drawing.Point(10, 23)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(108, 18)
+        Me.Label29.Size = New System.Drawing.Size(107, 18)
         Me.Label29.TabIndex = 102
         Me.Label29.Text = "Status Pelanggan"
         '
@@ -1590,7 +1627,7 @@ Partial Class frmcashier
         Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Location = New System.Drawing.Point(192, 434)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(213, 18)
+        Me.Label4.Size = New System.Drawing.Size(211, 18)
         Me.Label4.TabIndex = 285
         Me.Label4.Text = "* Tekan Delete untuk hapus barang"
         '
@@ -1603,7 +1640,7 @@ Partial Class frmcashier
         Me.Label10.ForeColor = System.Drawing.Color.Black
         Me.Label10.Location = New System.Drawing.Point(10, 434)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(181, 18)
+        Me.Label10.Size = New System.Drawing.Size(179, 18)
         Me.Label10.TabIndex = 284
         Me.Label10.Text = "* Tekan F5 untuk pilih barang"
         '
@@ -1919,8 +1956,8 @@ Partial Class frmcashier
         'PanelControl3
         '
         Me.PanelControl3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.WhiteSmoke
         Me.PanelControl3.Appearance.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PanelControl3.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1961,7 +1998,7 @@ Partial Class frmcashier
         Me.chk_option_cetak.Location = New System.Drawing.Point(6, 577)
         Me.chk_option_cetak.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.chk_option_cetak.Name = "chk_option_cetak"
-        Me.chk_option_cetak.Size = New System.Drawing.Size(185, 22)
+        Me.chk_option_cetak.Size = New System.Drawing.Size(181, 22)
         Me.chk_option_cetak.TabIndex = 283
         Me.chk_option_cetak.Text = "CETAK NOTA HITAM PUTIH"
         Me.chk_option_cetak.UseVisualStyleBackColor = False
@@ -1970,7 +2007,7 @@ Partial Class frmcashier
         'GroupControl8
         '
         Me.GroupControl8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl8.Appearance.BackColor = System.Drawing.SystemColors.ControlLight
         Me.GroupControl8.Appearance.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupControl8.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1993,7 +2030,7 @@ Partial Class frmcashier
         'btn_browse
         '
         Me.btn_browse.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_browse.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_browse.Appearance.ForeColor = System.Drawing.Color.Black
         Me.btn_browse.Appearance.Options.UseFont = True
@@ -2024,7 +2061,7 @@ Partial Class frmcashier
         'txt_save_path
         '
         Me.txt_save_path.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txt_save_path.BackColor = System.Drawing.Color.White
         Me.txt_save_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_save_path.Font = New System.Drawing.Font("Trebuchet MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2089,6 +2126,8 @@ Partial Class frmcashier
         Me.NavBarGroupControlContainer6.PerformLayout()
         Me.NavBarGroupControlContainer8.ResumeLayout(False)
         Me.NavBarGroupControlContainer8.PerformLayout()
+        Me.NavBarGroupControlContainer1.ResumeLayout(False)
+        Me.NavBarGroupControlContainer1.PerformLayout()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl4.ResumeLayout(False)
         Me.GroupControl4.PerformLayout()
@@ -2248,4 +2287,7 @@ Partial Class frmcashier
     Friend WithEvents gram As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents pergram As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents chk_option_cetak As System.Windows.Forms.CheckBox
+    Friend WithEvents NavBarGroupControlContainer1 As DevExpress.XtraNavBar.NavBarGroupControlContainer
+    Friend WithEvents txt_tukarbarang As System.Windows.Forms.TextBox
+    Friend WithEvents NavBarGroup1 As DevExpress.XtraNavBar.NavBarGroup
 End Class

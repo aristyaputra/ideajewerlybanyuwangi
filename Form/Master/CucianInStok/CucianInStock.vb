@@ -169,6 +169,7 @@ Public Class CucianInStok
         Rows = select_warehouse.Rows.Count - 1
         datagrid_layout()
         GroupControl9.Visible = False
+        view_data_cash()
     End Sub
     Private Sub datagrid_layout()
         open_conn()
@@ -226,6 +227,7 @@ Public Class CucianInStok
         dgcash.Columns(6).DataPropertyName = "id_unit"
         dgcash.Columns(7).DataPropertyName = "mst_itemcat_nm"
         dgcash.Columns(8).DataPropertyName = "mst_itemjenis_nm"
+        dgcash.Columns(9).DataPropertyName = "price"
 
         'z = DT.Rows.Count - 1
         'For b = 0 To z
@@ -292,15 +294,19 @@ Public Class CucianInStok
             '        Call insert_cashbank_setup(dgcash.Item(0, i).Value, i, username, server_datetime(), 1)
             '    End If
             'Next
-
+            If dgbank.Rows.Count = 0 Then
+                Dim info As AlertInfo = New AlertInfo("Warning", "tidak ada item yang dipilih")
+                alertControl_warning.Show(Me, info)
+                Exit Sub
+            End If
             For j = 0 To dgbank.Rows.Count - 1
                 ' If dgbank.Item(2, j).Value = True Then
-                Call insert_stock_cucian(dgbank.Item(0, j).Value, server_datetime(), username, server_datetime(), username, server_datetime(), dgbank.Item(0, j).Value, dgbank.Item(5, j).Value, dgbank.Item(6, j).Value, "INSERT")
+                Call insert_stock_cucian(dgbank.Item(4, j).Value, server_datetime(), dgbank.Item(0, j).Value, dgbank.Item(5, j).Value, dgbank.Item(6, j).Value, Replace(dgbank.Item(9, j).Value, ",", ""), "INSERT")
                 'End If
             Next
 
             If param_sukses = True Then
-                Dim info As AlertInfo = New AlertInfo(msgtitle_save_success, msgbox_save_success)
+                Dim info As AlertInfo = New AlertInfo(msgtitle_save_success, "Cucian Berhasil Masuk Stok")
                 alertControl_success.Show(Me, info)
 
                 GroupControl9.Visible = True
@@ -366,6 +372,7 @@ Public Class CucianInStok
         insert = 1
         edit = 0
         dgbank.Rows.Clear()
+        view_data_cash()
     End Sub
 
     'Private Sub DataGridView1_CellEndEdit(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
@@ -389,11 +396,22 @@ Public Class CucianInStok
     Private Sub btn_next_Click(sender As System.Object, e As System.EventArgs) Handles btn_next.Click
         open_conn()
         On Error Resume Next
+
         Dim index_row, row_jml As Integer
         If dgcash.Rows.Count > 0 Then
             index_row = dgcash.CurrentCell.RowIndex
         End If
-        dgcash.Rows.Add(1)
+
+        'cek ada yang sama atau tidak
+        For i As Integer = 0 To dgbank.Rows.Count - 1
+            If dgbank.Item(0, i).Value = dgcash.Item(0, index_row).Value Then
+                Dim info As AlertInfo = New AlertInfo("Warning", "Data Sudah ada di daftar stok")
+                alertControl_warning.Show(MainMenu, info)
+                Exit Sub
+            End If
+        Next
+
+        dgbank.Rows.Add(1)
         If dgbank.Rows.Count = 1 Then
             dgbank.CurrentCell = dgbank(0, 0)
         End If
@@ -403,6 +421,11 @@ Public Class CucianInStok
         dgbank.Item(2, row_jml).Value = dgcash.Item(2, index_row).Value
         dgbank.Item(3, row_jml).Value = dgcash.Item(3, index_row).Value
         dgbank.Item(4, row_jml).Value = dgcash.Item(4, index_row).Value
+        dgbank.Item(5, row_jml).Value = dgcash.Item(5, index_row).Value
+        dgbank.Item(6, row_jml).Value = dgcash.Item(6, index_row).Value
+        dgbank.Item(7, row_jml).Value = dgcash.Item(7, index_row).Value
+        dgbank.Item(8, row_jml).Value = dgcash.Item(8, index_row).Value
+        dgbank.Item(9, row_jml).Value = dgcash.Item(9, index_row).Value
         dgbank.CurrentCell = dgbank(0, dgbank.CurrentCell.RowIndex + 1)
     End Sub
 
@@ -642,7 +665,16 @@ Public Class CucianInStok
 
         ' close port.
         Call B_ClosePrn()
-        RawPrinterHelper.SendFileToPrinter("ZDesigner GT800 (EPL)", filetoprint)
+        'RawPrinterHelper.SendFileToPrinter("ZDesigner GT800 (EPL)", filetoprint)
+        RawPrinterHelper.SendFileToPrinter("Adobe PDF", filetoprint)
 
+    End Sub
+
+    Private Sub GroupControl9_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles GroupControl9.Paint
+
+    End Sub
+
+    Private Sub SimpleButton24_Click(sender As System.Object, e As System.EventArgs) Handles SimpleButton24.Click
+        GroupControl9.Visible = False
     End Sub
 End Class

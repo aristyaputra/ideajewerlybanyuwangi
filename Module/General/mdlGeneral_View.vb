@@ -1086,6 +1086,25 @@ Module mdlGeneral_View
         End Try
     End Function
 
+    Public Function jenis_potongan(ByVal var_criteria As String, ByVal detail As Integer) As DataTable
+        Dim DT As New DataTable
+        Try
+            With cmd_sqlselect
+                .Connection = conn
+                .CommandText = "call select_potonganjenis('" & var_criteria & "'," & detail & ")"
+                .CommandType = CommandType.Text
+            End With
+            mysql_adapter.SelectCommand = cmd_sqlselect
+            mysql_adapter.Fill(DT)
+            Return DT
+
+        Catch ex As Exception
+            Dim info As AlertInfo = New AlertInfo("Error", ex.Message)
+            alertControl_error.Show(MainMenu, info)
+            Return DT
+        End Try
+    End Function
+
     Public Function get_qty_todisc(ByVal var_criteria As String) As Double
         Dim DT As New DataTable
         Try

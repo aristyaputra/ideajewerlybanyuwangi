@@ -290,6 +290,7 @@ Public Class frmcashier
             .txt_totalcsh.Text = 0
             .txt_customer_phone.Text = ""
             .TextBox1.Text = 0
+            .txt_tukarbarang.Text = 0
         End With
         DataGridView1.Rows.Clear()
         DataGridView1.Rows.Add(200)
@@ -343,7 +344,7 @@ Public Class frmcashier
         If insert = 1 Then
             Call insert_cashier(Trim(txt_inv_no.Text), txt_date.Value, txt_customer_nm.Text, txt_cust_address.Text, txt_customer_phone.Text, _
                                     var_paymethod, Replace(txt_subtotal.Text, ",", ""), Replace(txt_disc.Text, "%", ""), Replace(txt_tax.Text, "%", ""), Replace(txt_total.Text, ",", ""), txt_comment.Text, username, _
-                                    server_datetime(), username, server_datetime(), 0, "", "", 0, "", 0, 0, 0, 0, "", 0, 0, 0, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), var_chk_so, member, cbo_customer.Text, Replace(TextBox1.Text, ",", ""), 0, 0, add_customer, Terbilang(Replace(txt_total.Text, ",", "")))
+                                    server_datetime(), username, server_datetime(), 0, "", "", 0, "", 0, 0, 0, 0, "", 0, 0, 0, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), var_chk_so, member, cbo_customer.Text, Replace(TextBox1.Text, ",", ""), 0, 0, add_customer, Terbilang(Replace(txt_total.Text, ",", "")), Replace(txt_tukarbarang.Text, ",", ""))
 
             For i = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Item(1, i).Value <> "" Then
@@ -351,7 +352,7 @@ Public Class frmcashier
 
                     Call insert_cashier(Trim(txt_inv_no.Text), txt_date.Value, txt_customer_nm.Text, txt_cust_address.Text, txt_customer_phone.Text, _
                                     var_paymethod, Replace(txt_subtotal.Text, ",", ""), Replace(txt_disc.Text, "%", ""), Replace(txt_tax.Text, "%", ""), Replace(txt_total.Text, ",", ""), txt_comment.Text, username, _
-                                    server_datetime(), username, server_datetime(), DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, Replace(DataGridView1.Item(4, i).Value, ",", ""), DataGridView1.Item(5, i).Value, Replace(DataGridView1.Item(6, i).Value, ",", ""), Replace(DataGridView1.Item(7, i).Value, ",", ""), Replace(DataGridView1.Item(8, i).Value, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), txt_curr.Text, DataGridView1.Item(10, i).Value, i, 0, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), var_chk_so, member, cbo_customer.Text, Replace(TextBox1.Text, ",", ""), Replace(DataGridView1.Item(12, i).Value, ",", ""), Replace(DataGridView1.Item(13, i).Value, ",", ""), add_customer, Terbilang(Replace(txt_total.Text, ",", "")))
+                                    server_datetime(), username, server_datetime(), DataGridView1.Item(0, i).Value, DataGridView1.Item(1, i).Value, DataGridView1.Item(3, i).Value, Replace(DataGridView1.Item(4, i).Value, ",", ""), DataGridView1.Item(5, i).Value, Replace(DataGridView1.Item(6, i).Value, ",", ""), Replace(DataGridView1.Item(7, i).Value, ",", ""), Replace(DataGridView1.Item(8, i).Value, ",", ""), Replace(DataGridView1.Item(9, i).Value, ",", ""), txt_curr.Text, DataGridView1.Item(10, i).Value, i, 0, txt_payterm.Text, txt_discterm.Text, Replace(txt_disc_pay.Text, "%", ""), var_chk_so, member, cbo_customer.Text, Replace(TextBox1.Text, ",", ""), Replace(DataGridView1.Item(12, i).Value, ",", ""), Replace(DataGridView1.Item(13, i).Value, ",", ""), add_customer, Terbilang(Replace(txt_total.Text, ",", "")), Replace(txt_tukarbarang.Text, ",", ""))
                 End If
             Next
 
@@ -1181,5 +1182,29 @@ Public Class frmcashier
                 txt_customer_nm.Focus()
             End If
         End If
+    End Sub
+
+    Private Sub txt_tukarbarang_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_tukarbarang.TextChanged
+        Dim total, bayar, tukar, change As Double
+        total = Replace(txt_total.Text, ",", "")
+        bayar = Replace(TextBox1.Text, ",", "")
+        tukar = Replace(txt_tukarbarang.Text, ",", "")
+
+        total = total - tukar
+        txt_totalcsh.Text = FormatNumber(total, 0)
+        change = total - bayar
+        TextBox2.Text = FormatNumber(change, 0)
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox1.TextChanged
+        Dim total, bayar, tukar, change As Double
+        total = Replace(txt_total.Text, ",", "")
+        bayar = Replace(TextBox1.Text, ",", "")
+        tukar = Replace(txt_tukarbarang.Text, ",", "")
+
+        total = total - tukar
+        txt_totalcsh.Text = FormatNumber(total, 0)
+        change = total - bayar
+        TextBox2.Text = FormatNumber(change, 0)
     End Sub
 End Class

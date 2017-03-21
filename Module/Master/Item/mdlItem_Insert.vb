@@ -176,6 +176,27 @@ Module mdlItem_Insert
         End Try
     End Sub
 
+    Public Sub insert_potonganjenis(ByVal var_itemcat_id As String, ByVal var_itemcat_nm As Double, ByVal description As String, ByVal transid As String)
+        oTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
+        With cmd_sqlinsert
+            .Connection = conn
+            .CommandText = "call sp_potonganjenis ('" & var_itemcat_id & "'," & var_itemcat_nm & ",'" & description & "','" & transid & "')"
+            .CommandType = CommandType.Text
+            .Transaction = oTransaction
+        End With
+        Try
+            cmd_sqlinsert.ExecuteNonQuery()
+            oTransaction.Commit()
+            param_sukses = True
+        Catch ex As Exception
+            Dim info As AlertInfo = New AlertInfo("Error", ex.Message)
+            alertControl_error.Show(MainMenu, info)
+            oTransaction.Rollback()
+            param_sukses = False
+        End Try
+    End Sub
+
+
     Public Sub insert_itembrand(ByVal var_itemcat_id As String, ByVal var_itemcat_nm As String, ByVal description As String, ByVal transid As String, ByVal disc As Double)
         oTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
         With cmd_sqlinsert
