@@ -27,10 +27,10 @@ Public Class DialogActivated
         act2 = EnkripsiID(LCase(chr2))
         act3 = EnkripsiID(LCase(chr3))
         act4 = EnkripsiID(LCase(chr4))
-        txt_aktivasi1.Text = UCase(act1)
-        txt_aktivasi2.Text = UCase(act2)
-        txt_aktivasi3.Text = UCase(act3)
-        txt_aktivasi4.Text = UCase(act4)
+        'txt_aktivasi1.Text = UCase(act1)
+        'txt_aktivasi2.Text = UCase(act2)
+        'txt_aktivasi3.Text = UCase(act3)
+        'txt_aktivasi4.Text = UCase(act4)
 
         Dim DT As DataTable
         DT = select_company()

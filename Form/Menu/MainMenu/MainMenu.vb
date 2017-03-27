@@ -2149,14 +2149,14 @@ Lagi:
                 End If
             End If
             If e.Link.ItemName = "MN_ITEM_INCLEAN" Then
-                If Application.OpenForms().OfType(Of frmitem).Any Then
+                If Application.OpenForms().OfType(Of CucianInStok).Any Then
                     CucianInStok.Activate()
                 Else
                     CucianInStok.Show()
                 End If
             End If
             If e.Link.ItemName = "MN_SETTING_POTONGAN" Then
-                If Application.OpenForms().OfType(Of frmitem).Any Then
+                If Application.OpenForms().OfType(Of frmsetpotbeli).Any Then
                     frmsetpotbeli.Activate()
                 Else
                     frmsetpotbeli.Show()

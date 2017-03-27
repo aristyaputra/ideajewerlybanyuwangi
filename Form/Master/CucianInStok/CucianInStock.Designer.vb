@@ -47,7 +47,27 @@ Partial Class CucianInStok
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgbank = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Berat2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kadar2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kategori3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Jenis243 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgcash = New System.Windows.Forms.DataGridView()
+        Me.colid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colnm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Berat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kadar = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kategori = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupControl9 = New DevExpress.XtraEditors.GroupControl()
@@ -86,26 +106,6 @@ Partial Class CucianInStok
         Me.btn_next = New System.Windows.Forms.Button()
         Me.btn_keluar = New DevExpress.XtraEditors.SimpleButton()
         Me.btn_save2 = New DevExpress.XtraEditors.SimpleButton()
-        Me.colid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colnm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Berat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kadar = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kategori = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Berat2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kadar2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qty2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kategori3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Jenis243 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgbank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgcash, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -270,6 +270,68 @@ Partial Class CucianInStok
         Me.dgbank.Size = New System.Drawing.Size(479, 569)
         Me.dgbank.TabIndex = 7
         '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Kode Barang"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 115
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Nama Barang"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 215
+        '
+        'Berat2
+        '
+        Me.Berat2.HeaderText = "Berat"
+        Me.Berat2.Name = "Berat2"
+        Me.Berat2.Width = 50
+        '
+        'Kadar2
+        '
+        Me.Kadar2.HeaderText = "Kadar"
+        Me.Kadar2.Name = "Kadar2"
+        Me.Kadar2.Width = 60
+        '
+        'No2
+        '
+        Me.No2.HeaderText = "No Pembelian"
+        Me.No2.Name = "No2"
+        Me.No2.Width = 150
+        '
+        'Qty2
+        '
+        Me.Qty2.HeaderText = "Qty"
+        Me.Qty2.Name = "Qty2"
+        Me.Qty2.Visible = False
+        '
+        'Unit2
+        '
+        Me.Unit2.HeaderText = "Unit"
+        Me.Unit2.Name = "Unit2"
+        Me.Unit2.Visible = False
+        '
+        'Kategori3
+        '
+        Me.Kategori3.HeaderText = "Kategori"
+        Me.Kategori3.Name = "Kategori3"
+        Me.Kategori3.Visible = False
+        '
+        'Jenis243
+        '
+        Me.Jenis243.HeaderText = "Jenis"
+        Me.Jenis243.Name = "Jenis243"
+        Me.Jenis243.Visible = False
+        '
+        'price2
+        '
+        Me.price2.HeaderText = "Column1"
+        Me.price2.Name = "price2"
+        Me.price2.Visible = False
+        '
         'dgcash
         '
         Me.dgcash.AllowUserToAddRows = False
@@ -295,6 +357,68 @@ Partial Class CucianInStok
         Me.dgcash.RowHeadersVisible = False
         Me.dgcash.Size = New System.Drawing.Size(476, 569)
         Me.dgcash.TabIndex = 6
+        '
+        'colid
+        '
+        Me.colid.HeaderText = "Kode Barang"
+        Me.colid.Name = "colid"
+        Me.colid.ReadOnly = True
+        Me.colid.Width = 115
+        '
+        'colnm
+        '
+        Me.colnm.HeaderText = "Nama Barang"
+        Me.colnm.Name = "colnm"
+        Me.colnm.ReadOnly = True
+        Me.colnm.Width = 215
+        '
+        'Berat
+        '
+        Me.Berat.HeaderText = "Berat"
+        Me.Berat.Name = "Berat"
+        Me.Berat.Width = 50
+        '
+        'Kadar
+        '
+        Me.Kadar.HeaderText = "Kadar"
+        Me.Kadar.Name = "Kadar"
+        Me.Kadar.Width = 60
+        '
+        'No
+        '
+        Me.No.HeaderText = "No Pembelian"
+        Me.No.Name = "No"
+        Me.No.Width = 150
+        '
+        'Qty
+        '
+        Me.Qty.HeaderText = "Qty"
+        Me.Qty.Name = "Qty"
+        Me.Qty.Visible = False
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Unit"
+        Me.Unit.Name = "Unit"
+        Me.Unit.Visible = False
+        '
+        'Kategori
+        '
+        Me.Kategori.HeaderText = "Kategori"
+        Me.Kategori.Name = "Kategori"
+        Me.Kategori.Visible = False
+        '
+        'Jenis
+        '
+        Me.Jenis.HeaderText = "Jenis"
+        Me.Jenis.Name = "Jenis"
+        Me.Jenis.Visible = False
+        '
+        'price
+        '
+        Me.price.HeaderText = "price"
+        Me.price.Name = "price"
+        Me.price.Visible = False
         '
         'Button1
         '
@@ -812,130 +936,6 @@ Partial Class CucianInStok
         Me.btn_save2.Size = New System.Drawing.Size(123, 40)
         Me.btn_save2.TabIndex = 22
         Me.btn_save2.Text = "MASUK STOK"
-        '
-        'colid
-        '
-        Me.colid.HeaderText = "Kode Barang"
-        Me.colid.Name = "colid"
-        Me.colid.ReadOnly = True
-        Me.colid.Width = 115
-        '
-        'colnm
-        '
-        Me.colnm.HeaderText = "Nama Barang"
-        Me.colnm.Name = "colnm"
-        Me.colnm.ReadOnly = True
-        Me.colnm.Width = 215
-        '
-        'Berat
-        '
-        Me.Berat.HeaderText = "Berat"
-        Me.Berat.Name = "Berat"
-        Me.Berat.Width = 50
-        '
-        'Kadar
-        '
-        Me.Kadar.HeaderText = "Kadar"
-        Me.Kadar.Name = "Kadar"
-        Me.Kadar.Width = 60
-        '
-        'No
-        '
-        Me.No.HeaderText = "No Pembelian"
-        Me.No.Name = "No"
-        Me.No.Width = 150
-        '
-        'Qty
-        '
-        Me.Qty.HeaderText = "Qty"
-        Me.Qty.Name = "Qty"
-        Me.Qty.Visible = False
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        Me.Unit.Visible = False
-        '
-        'Kategori
-        '
-        Me.Kategori.HeaderText = "Kategori"
-        Me.Kategori.Name = "Kategori"
-        Me.Kategori.Visible = False
-        '
-        'Jenis
-        '
-        Me.Jenis.HeaderText = "Jenis"
-        Me.Jenis.Name = "Jenis"
-        Me.Jenis.Visible = False
-        '
-        'price
-        '
-        Me.price.HeaderText = "price"
-        Me.price.Name = "price"
-        Me.price.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Kode Barang"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 115
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Nama Barang"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 215
-        '
-        'Berat2
-        '
-        Me.Berat2.HeaderText = "Berat"
-        Me.Berat2.Name = "Berat2"
-        Me.Berat2.Width = 50
-        '
-        'Kadar2
-        '
-        Me.Kadar2.HeaderText = "Kadar"
-        Me.Kadar2.Name = "Kadar2"
-        Me.Kadar2.Width = 60
-        '
-        'No2
-        '
-        Me.No2.HeaderText = "No Pembelian"
-        Me.No2.Name = "No2"
-        Me.No2.Width = 150
-        '
-        'Qty2
-        '
-        Me.Qty2.HeaderText = "Qty"
-        Me.Qty2.Name = "Qty2"
-        Me.Qty2.Visible = False
-        '
-        'Unit2
-        '
-        Me.Unit2.HeaderText = "Unit"
-        Me.Unit2.Name = "Unit2"
-        Me.Unit2.Visible = False
-        '
-        'Kategori3
-        '
-        Me.Kategori3.HeaderText = "Kategori"
-        Me.Kategori3.Name = "Kategori3"
-        Me.Kategori3.Visible = False
-        '
-        'Jenis243
-        '
-        Me.Jenis243.HeaderText = "Jenis"
-        Me.Jenis243.Name = "Jenis243"
-        Me.Jenis243.Visible = False
-        '
-        'price2
-        '
-        Me.price2.HeaderText = "Column1"
-        Me.price2.Name = "price2"
-        Me.price2.Visible = False
         '
         'CucianInStok
         '
