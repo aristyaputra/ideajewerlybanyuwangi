@@ -1191,8 +1191,8 @@ Public Class frmcashier
         tukar = Replace(txt_tukarbarang.Text, ",", "")
 
         total = total - tukar
-        txt_totalcsh.Text = FormatNumber(total, 0)
-        change = total - bayar
+        ' txt_totalcsh.Text = FormatNumber(total, 0)
+        change = bayar - total
         TextBox2.Text = FormatNumber(change, 0)
     End Sub
 
@@ -1203,8 +1203,8 @@ Public Class frmcashier
         tukar = Replace(txt_tukarbarang.Text, ",", "")
 
         total = total - tukar
-        txt_totalcsh.Text = FormatNumber(total, 0)
-        change = total - bayar
+        ' txt_totalcsh.Text = FormatNumber(total, 0)
+        change = bayar - total
         TextBox2.Text = FormatNumber(change, 0)
     End Sub
 End Class
