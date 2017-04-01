@@ -419,6 +419,13 @@ Public Class frmpurchase_langsung
             End If
             DataGridView1.Item(8, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value * DataGridView1.Item(4, DataGridView1.CurrentCell.RowIndex).Value, 0)
             DataGridView1.Item(10, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Math.Round(DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value / DataGridView1.Item(9, DataGridView1.CurrentCell.RowIndex).Value, 0), 0)
+            Dim potongan, potonganLain, Net As Double
+            potongan = Replace(DataGridView1.Item(13, DataGridView1.CurrentCell.RowIndex).Value, ",", "")
+            potonganLain = Replace(DataGridView1.Item(14, DataGridView1.CurrentCell.RowIndex).Value, ",", "")
+
+            Net = Replace(DataGridView1.Item(8, DataGridView1.CurrentCell.RowIndex).Value, ",", "") - Potongan - potonganLain
+
+            DataGridView1.Item(15, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Net, 0)
         End If
         If columnIndex = 4 Then
             DataGridView1.Item(4, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(DataGridView1.Item(4, DataGridView1.CurrentCell.RowIndex).Value, 0)
@@ -436,6 +443,13 @@ Public Class frmpurchase_langsung
             End If
             DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Math.Round(DataGridView1.Item(9, DataGridView1.CurrentCell.RowIndex).Value * DataGridView1.Item(10, DataGridView1.CurrentCell.RowIndex).Value, 0), 0)
             DataGridView1.Item(8, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(DataGridView1.Item(7, DataGridView1.CurrentCell.RowIndex).Value * DataGridView1.Item(4, DataGridView1.CurrentCell.RowIndex).Value, 0)
+            Dim potongan, potonganLain, Net As Double
+            potongan = Replace(DataGridView1.Item(13, DataGridView1.CurrentCell.RowIndex).Value, ",", "")
+            potonganLain = Replace(DataGridView1.Item(14, DataGridView1.CurrentCell.RowIndex).Value, ",", "")
+
+            Net = Replace(DataGridView1.Item(8, DataGridView1.CurrentCell.RowIndex).Value, ",", "") - potongan - potonganLain
+
+            DataGridView1.Item(15, DataGridView1.CurrentCell.RowIndex).Value = FormatNumber(Net, 0)
         End If
         'If Trim(DataGridView1.Item(1, DataGridView1.CurrentCell.RowIndex).Value) = "" Or Trim(DataGridView1.Item(2, DataGridView1.CurrentCell.RowIndex).Value) = "" Then
         '    DataGridView1.Item(4, DataGridView1.CurrentCell.RowIndex).Value = ""

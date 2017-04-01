@@ -32,6 +32,7 @@ Partial Class CucianInStok
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CucianInStok))
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -68,8 +69,8 @@ Partial Class CucianInStok
         Me.Kategori = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupControl9 = New DevExpress.XtraEditors.GroupControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -106,6 +107,23 @@ Partial Class CucianInStok
         Me.btn_next = New System.Windows.Forms.Button()
         Me.btn_keluar = New DevExpress.XtraEditors.SimpleButton()
         Me.btn_save2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.dgprocess = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.newproc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgbank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgcash, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +134,7 @@ Partial Class CucianInStok
         Me.PanelControl1.SuspendLayout()
         CType(Me.dg_employee, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg_marketing, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgprocess, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DateTimePicker2
@@ -227,11 +246,11 @@ Partial Class CucianInStok
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(523, 16)
+        Me.Label3.Location = New System.Drawing.Point(353, 16)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 22)
+        Me.Label3.Size = New System.Drawing.Size(141, 22)
         Me.Label3.TabIndex = 9
-        Me.Label3.Text = "Masuk Stok"
+        Me.Label3.Text = "Proses Cuci Emas"
         '
         'Label2
         '
@@ -239,9 +258,9 @@ Partial Class CucianInStok
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(5, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(113, 22)
+        Me.Label2.Size = New System.Drawing.Size(207, 22)
         Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Daftar Cucian"
+        Me.Label2.Text = "Daftar Emas Harus Di Cuci"
         '
         'dgbank
         '
@@ -263,19 +282,18 @@ Partial Class CucianInStok
         Me.dgbank.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgbank.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgbank.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.Berat2, Me.Kadar2, Me.No2, Me.Qty2, Me.Unit2, Me.Kategori3, Me.Jenis243, Me.price2})
-        Me.dgbank.Location = New System.Drawing.Point(527, 42)
+        Me.dgbank.Location = New System.Drawing.Point(701, 42)
         Me.dgbank.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgbank.Name = "dgbank"
         Me.dgbank.RowHeadersVisible = False
-        Me.dgbank.Size = New System.Drawing.Size(479, 569)
+        Me.dgbank.Size = New System.Drawing.Size(308, 569)
         Me.dgbank.TabIndex = 7
         '
         'DataGridViewTextBoxColumn7
         '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Kode Barang"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Kode"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 115
         '
         'DataGridViewTextBoxColumn8
         '
@@ -355,15 +373,14 @@ Partial Class CucianInStok
         Me.dgcash.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgcash.Name = "dgcash"
         Me.dgcash.RowHeadersVisible = False
-        Me.dgcash.Size = New System.Drawing.Size(476, 569)
+        Me.dgcash.Size = New System.Drawing.Size(311, 569)
         Me.dgcash.TabIndex = 6
         '
         'colid
         '
-        Me.colid.HeaderText = "Kode Barang"
+        Me.colid.HeaderText = "Kode"
         Me.colid.Name = "colid"
         Me.colid.ReadOnly = True
-        Me.colid.Width = 115
         '
         'colnm
         '
@@ -420,27 +437,10 @@ Partial Class CucianInStok
         Me.price.Name = "price"
         Me.price.Visible = False
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.DimGray
-        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Gold
-        Me.Button1.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Save_16x161
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(917, 689)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(66, 42)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Save"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        Me.Button1.Visible = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.GroupControl9)
         Me.GroupBox1.Controls.Add(Me.btn_prev)
         Me.GroupBox1.Controls.Add(Me.btn_next)
@@ -451,6 +451,11 @@ Partial Class CucianInStok
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.dgbank)
         Me.GroupBox1.Controls.Add(Me.dgcash)
+        Me.GroupBox1.Controls.Add(Me.dgprocess)
+        Me.GroupBox1.Controls.Add(Me.SimpleButton1)
+        Me.GroupBox1.Controls.Add(Me.Button6)
+        Me.GroupBox1.Controls.Add(Me.Button7)
+        Me.GroupBox1.Controls.Add(Me.SimpleButton2)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
@@ -460,6 +465,16 @@ Partial Class CucianInStok
         Me.GroupBox1.Size = New System.Drawing.Size(1018, 672)
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(697, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(245, 22)
+        Me.Label1.TabIndex = 317
+        Me.Label1.Text = "Proses Ke Stok (Cucian Selesai)"
         '
         'GroupControl9
         '
@@ -477,7 +492,7 @@ Partial Class CucianInStok
         Me.GroupControl9.Controls.Add(Me.TextBox5)
         Me.GroupControl9.Controls.Add(Me.SimpleButton26)
         Me.GroupControl9.Controls.Add(Me.SimpleButton27)
-        Me.GroupControl9.Location = New System.Drawing.Point(37, 72)
+        Me.GroupControl9.Location = New System.Drawing.Point(23, 99)
         Me.GroupControl9.LookAndFeel.SkinName = "Office 2010 Silver"
         Me.GroupControl9.LookAndFeel.UseDefaultLookAndFeel = False
         Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -883,7 +898,7 @@ Partial Class CucianInStok
         Me.btn_prev.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_prev.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Previous_24x24
-        Me.btn_prev.Location = New System.Drawing.Point(492, 305)
+        Me.btn_prev.Location = New System.Drawing.Point(669, 318)
         Me.btn_prev.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn_prev.Name = "btn_prev"
         Me.btn_prev.Size = New System.Drawing.Size(29, 37)
@@ -897,7 +912,7 @@ Partial Class CucianInStok
         Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_next.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_next.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Next_24x24
-        Me.btn_next.Location = New System.Drawing.Point(492, 260)
+        Me.btn_next.Location = New System.Drawing.Point(669, 273)
         Me.btn_next.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn_next.Name = "btn_next"
         Me.btn_next.Size = New System.Drawing.Size(29, 37)
@@ -911,7 +926,7 @@ Partial Class CucianInStok
         Me.btn_keluar.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_keluar.Appearance.Options.UseFont = True
         Me.btn_keluar.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Actions_session_exit_icon__3_
-        Me.btn_keluar.Location = New System.Drawing.Point(795, 622)
+        Me.btn_keluar.Location = New System.Drawing.Point(927, 618)
         Me.btn_keluar.LookAndFeel.SkinName = "Office 2010 Blue"
         Me.btn_keluar.LookAndFeel.UseDefaultLookAndFeel = False
         Me.btn_keluar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -922,20 +937,193 @@ Partial Class CucianInStok
         '
         'btn_save2
         '
-        Me.btn_save2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_save2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btn_save2.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_save2.Appearance.ForeColor = System.Drawing.Color.Black
         Me.btn_save2.Appearance.Options.UseFont = True
         Me.btn_save2.Appearance.Options.UseForeColor = True
         Me.btn_save2.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Save_16x16
-        Me.btn_save2.Location = New System.Drawing.Point(883, 622)
+        Me.btn_save2.Location = New System.Drawing.Point(701, 618)
         Me.btn_save2.LookAndFeel.SkinName = "Office 2010 Blue"
         Me.btn_save2.LookAndFeel.UseDefaultLookAndFeel = False
         Me.btn_save2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btn_save2.Name = "btn_save2"
-        Me.btn_save2.Size = New System.Drawing.Size(123, 40)
+        Me.btn_save2.Size = New System.Drawing.Size(135, 40)
         Me.btn_save2.TabIndex = 22
-        Me.btn_save2.Text = "MASUK STOK"
+        Me.btn_save2.Text = "PROSES KE STOK"
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.DimGray
+        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Gold
+        Me.Button1.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Save_16x161
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(917, 689)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(66, 42)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "Save"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
+        '
+        'dgprocess
+        '
+        Me.dgprocess.AllowUserToAddRows = False
+        Me.dgprocess.AllowUserToDeleteRows = False
+        Me.dgprocess.AllowUserToOrderColumns = True
+        Me.dgprocess.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgprocess.BackgroundColor = System.Drawing.Color.Lavender
+        Me.dgprocess.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgprocess.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        Me.dgprocess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgprocess.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.newproc})
+        Me.dgprocess.Location = New System.Drawing.Point(357, 42)
+        Me.dgprocess.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dgprocess.Name = "dgprocess"
+        Me.dgprocess.RowHeadersVisible = False
+        Me.dgprocess.Size = New System.Drawing.Size(308, 569)
+        Me.dgprocess.TabIndex = 314
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Kode"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Nama Barang"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 215
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Berat"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.Width = 50
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.HeaderText = "Kadar"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.Width = 60
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.HeaderText = "No Pembelian"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.Width = 150
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.HeaderText = "Qty"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.Visible = False
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.HeaderText = "Unit"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.Visible = False
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.HeaderText = "Kategori"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.Visible = False
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.HeaderText = "Jenis"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.Visible = False
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.HeaderText = "price"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.Visible = False
+        '
+        'newproc
+        '
+        Me.newproc.HeaderText = "newproc"
+        Me.newproc.Name = "newproc"
+        Me.newproc.Visible = False
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SimpleButton1.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Appearance.Options.UseForeColor = True
+        Me.SimpleButton1.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Check_16x16
+        Me.SimpleButton1.Location = New System.Drawing.Point(357, 618)
+        Me.SimpleButton1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SimpleButton1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(117, 40)
+        Me.SimpleButton1.TabIndex = 318
+        Me.SimpleButton1.Text = "PROSES CUCI"
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Previous_24x24
+        Me.Button6.Location = New System.Drawing.Point(324, 318)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(29, 37)
+        Me.Button6.TabIndex = 316
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Next_24x24
+        Me.Button7.Location = New System.Drawing.Point(324, 273)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(29, 37)
+        Me.Button7.TabIndex = 315
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.SimpleButton2.Appearance.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SimpleButton2.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.SimpleButton2.Appearance.Options.UseFont = True
+        Me.SimpleButton2.Appearance.Options.UseForeColor = True
+        Me.SimpleButton2.Image = Global.SMARTACCOUNTING.My.Resources.Resources.Search_16x16
+        Me.SimpleButton2.Location = New System.Drawing.Point(480, 618)
+        Me.SimpleButton2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SimpleButton2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(185, 40)
+        Me.SimpleButton2.TabIndex = 319
+        Me.SimpleButton2.Text = "VIEW DALAM PROSES"
         '
         'CucianInStok
         '
@@ -967,6 +1155,7 @@ Partial Class CucianInStok
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.dg_employee, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg_marketing, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgprocess, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1043,4 +1232,21 @@ Partial Class CucianInStok
     Friend WithEvents Kategori As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Jenis As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents price As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents dgprocess As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents newproc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class

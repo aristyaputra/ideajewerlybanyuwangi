@@ -1497,3 +1497,4 @@ D:\DATA KERJA\SMARTSOFTWARE\IBAS_PROJECT\Smart Accounting Software - Toko Emas -
 D:\DATA KERJA\SMARTSOFTWARE\IBAS_PROJECT\Smart Accounting Software - Toko Emas - Banyuwangi\ideajewerlybanyuwangi\bin\Debug\ru\DevExpress.XtraVerticalGrid.v12.1.resources.dll
 D:\DATA KERJA\SMARTSOFTWARE\IBAS_PROJECT\Smart Accounting Software - Toko Emas - Banyuwangi\ideajewerlybanyuwangi\bin\Debug\stdole.dll
 D:\DATA KERJA\SMARTSOFTWARE\IBAS_PROJECT\Smart Accounting Software - Toko Emas - Banyuwangi\ideajewerlybanyuwangi\obj\Debug\SMARTACCOUNTING.frmsetpotbeli.resources
+D:\DATA KERJA\SMARTSOFTWARE\IBAS_PROJECT\Smart Accounting Software - Toko Emas - Banyuwangi\ideajewerlybanyuwangi\obj\Debug\SMARTACCOUNTING.CetakProsesCuci.resources

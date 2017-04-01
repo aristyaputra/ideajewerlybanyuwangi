@@ -170,6 +170,7 @@ Public Class CucianInStok
         datagrid_layout()
         GroupControl9.Visible = False
         view_data_cash()
+        '  view_data_cucianinprocess()
     End Sub
     Private Sub datagrid_layout()
         open_conn()
@@ -187,6 +188,13 @@ Public Class CucianInStok
             .RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(var_red, var_grey, var_blue)
             .RowsDefaultCellStyle.SelectionForeColor = Color.Black
         End With
+        With dgprocess
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical
+            '.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue
+            .RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(var_red, var_grey, var_blue)
+            .RowsDefaultCellStyle.SelectionForeColor = Color.Black
+        End With
         dgbank.ReadOnly = False
         dgbank.Columns(0).ReadOnly = False
         dgbank.Columns(1).ReadOnly = True
@@ -194,6 +202,12 @@ Public Class CucianInStok
         dgbank.Columns(3).ReadOnly = True
         dgbank.Columns(4).ReadOnly = True
 
+        dgprocess.ReadOnly = False
+        dgprocess.Columns(0).ReadOnly = False
+        dgprocess.Columns(1).ReadOnly = True
+        dgprocess.Columns(2).ReadOnly = True
+        dgprocess.Columns(3).ReadOnly = True
+        dgprocess.Columns(4).ReadOnly = True
 
         dgcash.ReadOnly = False
         dgcash.Columns(0).ReadOnly = False
@@ -228,6 +242,38 @@ Public Class CucianInStok
         dgcash.Columns(7).DataPropertyName = "mst_itemcat_nm"
         dgcash.Columns(8).DataPropertyName = "mst_itemjenis_nm"
         dgcash.Columns(9).DataPropertyName = "price"
+
+        'z = DT.Rows.Count - 1
+        'For b = 0 To z
+        '    dgcash.Rows.Add(1)
+        '    dgcash.Item(0, b).Value = DT.Rows(b).Item(0)
+        '    dgcash.Item(1, b).Value = DT.Rows(b).Item(1)
+        '    If DT.Rows(b).Item(2) = "true" Then
+        '        dgcash.Item(2, b).Value = True
+        '    ElseIf DT.Rows(b).Item(2) = "false" Then
+        '        dgcash.Item(2, b).Value = False
+        '    End If
+        'Next
+    End Sub
+
+    Private Sub view_data_cucianinprocess()
+        open_conn()
+        Dim DT As DataTable
+        Dim z As Integer
+        DT = daftar_cucian_inprocess()
+        dgprocess.AutoGenerateColumns = False
+        dgprocess.DataSource = DT
+
+        dgprocess.Columns(0).DataPropertyName = "id_item"
+        dgprocess.Columns(1).DataPropertyName = "item_name"
+        dgprocess.Columns(2).DataPropertyName = "weight"
+        dgprocess.Columns(3).DataPropertyName = "kadar"
+        dgprocess.Columns(4).DataPropertyName = "no_cucian"
+        dgprocess.Columns(5).DataPropertyName = "qty"
+        dgprocess.Columns(6).DataPropertyName = "id_unit"
+        dgprocess.Columns(7).DataPropertyName = "mst_itemcat_nm"
+        dgprocess.Columns(8).DataPropertyName = "mst_itemjenis_nm"
+        dgprocess.Columns(9).DataPropertyName = "price"
 
         'z = DT.Rows.Count - 1
         'For b = 0 To z
@@ -367,12 +413,98 @@ Public Class CucianInStok
         End If
     End Sub
 
+    Private Sub process_cuci()
+        open_conn()
+        If insert = 1 Then
+
+            'For i = 0 To dgcash.Rows.Count - 1
+            '    If dgcash.Item(2, i).Value = True Then
+            '        Call insert_cashbank_setup(dgcash.Item(0, i).Value, i, username, server_datetime(), 1)
+            '    End If
+            'Next
+            If dgprocess.Rows.Count = 0 Then
+                Dim info As AlertInfo = New AlertInfo("Warning", "tidak ada item yang dipilih")
+                alertControl_warning.Show(Me, info)
+                Exit Sub
+            End If
+            Call process_cucian("", Now, "", 0, "", 0, "INSERT", 0)
+            For j = 0 To dgprocess.Rows.Count - 1
+                ' If dgbank.Item(2, j).Value = True Then
+                Call process_cucian(dgprocess.Item(4, j).Value, server_datetime(), dgprocess.Item(0, j).Value, dgprocess.Item(5, j).Value, dgprocess.Item(6, j).Value, Replace(dgprocess.Item(9, j).Value, ",", ""), "INSERT", 1)
+                'End If
+            Next
+
+            If param_sukses = True Then
+                Dim info As AlertInfo = New AlertInfo(msgtitle_save_success, "Cucian Berhasil Di Proses")
+                alertControl_success.Show(Me, info)
+
+                ' GroupControl9.Visible = True
+                'view_data_employee()
+
+                'dg_employee.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                'dg_marketing.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+                'Dim row_jml As Integer
+                'dg_marketing.Rows.Clear()
+                'For a As Integer = 0 To dg_employee.Rows.Count - 1
+                '    For z As Integer = 0 To dgbank.Item(5, a).Value - 1
+                '        dg_marketing.Rows.Add(1)
+                '        If dg_marketing.Rows.Count = 1 Then
+                '            dg_marketing.CurrentCell = dg_marketing(0, 0)
+                '        ElseIf dg_marketing.Rows.Count > 1 Then
+                '            dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
+                '        End If
+                '        row_jml = dg_marketing.Rows.GetLastRow(DataGridViewElementStates.Displayed)
+                '        dg_marketing.Item(0, row_jml).Value = dg_employee.Item(0, a).Value
+                '        dg_marketing.Item(1, row_jml).Value = dg_employee.Item(1, a).Value
+                '        dg_marketing.Item(2, row_jml).Value = dg_employee.Item(2, a).Value
+                '        dg_marketing.Item(3, row_jml).Value = dg_employee.Item(3, a).Value
+                '        dg_marketing.Item(4, row_jml).Value = dg_employee.Item(4, a).Value
+                '        dg_marketing.Item(5, row_jml).Value = dg_employee.Item(5, a).Value
+                '        dg_marketing.Item(6, row_jml).Value = dg_employee.Item(6, a).Value
+                '        dg_marketing.Item(7, row_jml).Value = dg_employee.Item(7, a).Value
+                '        ' dg_marketing.CurrentCell = dg_marketing(0, dg_marketing.CurrentCell.RowIndex + 1)
+                '    Next
+                'Next
+                CetakProsesCuci.Show()
+                clean()
+            Else
+                Dim info As AlertInfo = New AlertInfo(msgtitle_save_failed, msgbox_save_failed)
+                alertControl_error.Show(Me, info)
+            End If
+        ElseIf edit = 1 Then
+            'For i = 0 To dgcash.Rows.Count - 1
+            '    If dgcash.Item(2, i).Value = True Then
+            '        Call insert_cashbank_setup(dgcash.Item(0, i).Value, i, username, server_datetime(), 1)
+            '    End If
+            'Next
+
+            'For j = 0 To dgbank.Rows.Count - 1
+            '    If dgbank.Item(2, j).Value = True Then
+            '        Call insert_cashbank_setup(dgbank.Item(0, j).Value, j, username, server_datetime(), 2)
+            '    End If
+            'Next
+
+            'If param_sukses = True Then
+            '    Dim info As AlertInfo = New AlertInfo(msgtitle_save_success, msgbox_save_success)
+            '    alertControl_success.Show(Me, info)
+            '    clean()
+            'Else
+            '    Dim info As AlertInfo = New AlertInfo(msgtitle_save_failed, msgbox_save_failed)
+            '    alertControl_error.Show(Me, info)
+            'End If
+        End If
+    End Sub
+
     Private Sub clean()
         open_conn()
         insert = 1
         edit = 0
         dgbank.Rows.Clear()
+        view_data_cucianinprocess()
+
         view_data_cash()
+        'view_data_cucianinprocess()
     End Sub
 
     'Private Sub DataGridView1_CellEndEdit(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
@@ -397,14 +529,24 @@ Public Class CucianInStok
         open_conn()
         On Error Resume Next
 
+        If SimpleButton2.Text = "VIEW DALAM PROSES" Then
+            pesan = MsgBox("Masih dalam mode proses akan cuci" & vbCrLf & "Klik VIEW DALAM PROSES", MsgBoxStyle.OkOnly)
+            Exit Sub
+        End If
+
+        If dgprocess.Rows.Count = 0 Then
+            pesan = MsgBox("Tidak ada item dalam proses cucian", MsgBoxStyle.OkOnly)
+            Exit Sub
+        End If
+
         Dim index_row, row_jml As Integer
-        If dgcash.Rows.Count > 0 Then
-            index_row = dgcash.CurrentCell.RowIndex
+        If dgprocess.Rows.Count > 0 Then
+            index_row = dgprocess.CurrentCell.RowIndex
         End If
 
         'cek ada yang sama atau tidak
         For i As Integer = 0 To dgbank.Rows.Count - 1
-            If dgbank.Item(0, i).Value = dgcash.Item(0, index_row).Value Then
+            If dgbank.Item(0, i).Value = dgprocess.Item(0, index_row).Value Then
                 Dim info As AlertInfo = New AlertInfo("Warning", "Data Sudah ada di daftar stok")
                 alertControl_warning.Show(MainMenu, info)
                 Exit Sub
@@ -416,16 +558,16 @@ Public Class CucianInStok
             dgbank.CurrentCell = dgbank(0, 0)
         End If
         row_jml = dgbank.Rows.GetLastRow(DataGridViewElementStates.Displayed)
-        dgbank.Item(0, row_jml).Value = dgcash.Item(0, index_row).Value
-        dgbank.Item(1, row_jml).Value = dgcash.Item(1, index_row).Value
-        dgbank.Item(2, row_jml).Value = dgcash.Item(2, index_row).Value
-        dgbank.Item(3, row_jml).Value = dgcash.Item(3, index_row).Value
-        dgbank.Item(4, row_jml).Value = dgcash.Item(4, index_row).Value
-        dgbank.Item(5, row_jml).Value = dgcash.Item(5, index_row).Value
-        dgbank.Item(6, row_jml).Value = dgcash.Item(6, index_row).Value
-        dgbank.Item(7, row_jml).Value = dgcash.Item(7, index_row).Value
-        dgbank.Item(8, row_jml).Value = dgcash.Item(8, index_row).Value
-        dgbank.Item(9, row_jml).Value = dgcash.Item(9, index_row).Value
+        dgbank.Item(0, row_jml).Value = dgprocess.Item(0, index_row).Value
+        dgbank.Item(1, row_jml).Value = dgprocess.Item(1, index_row).Value
+        dgbank.Item(2, row_jml).Value = dgprocess.Item(2, index_row).Value
+        dgbank.Item(3, row_jml).Value = dgprocess.Item(3, index_row).Value
+        dgbank.Item(4, row_jml).Value = dgprocess.Item(4, index_row).Value
+        dgbank.Item(5, row_jml).Value = dgprocess.Item(5, index_row).Value
+        dgbank.Item(6, row_jml).Value = dgprocess.Item(6, index_row).Value
+        dgbank.Item(7, row_jml).Value = dgprocess.Item(7, index_row).Value
+        dgbank.Item(8, row_jml).Value = dgprocess.Item(8, index_row).Value
+        dgbank.Item(9, row_jml).Value = dgprocess.Item(9, index_row).Value
         dgbank.CurrentCell = dgbank(0, dgbank.CurrentCell.RowIndex + 1)
     End Sub
 
@@ -676,5 +818,91 @@ Public Class CucianInStok
 
     Private Sub SimpleButton24_Click(sender As System.Object, e As System.EventArgs) Handles SimpleButton24.Click
         GroupControl9.Visible = False
+    End Sub
+
+    Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
+        open_conn()
+        On Error Resume Next
+
+        If SimpleButton2.Text = "KEMBALI KE PROSES CUCI" Then
+            pesan = MsgBox("Masih dalam mode proses ke stok" & vbCrLf & "Klik kembali ke proses cuci", MsgBoxStyle.OkOnly)
+            Exit Sub
+        End If
+
+        If dgcash.Rows.Count = 0 Then
+            pesan = MsgBox("Tidak ada item yang akan di cuci", MsgBoxStyle.OkOnly)
+            Exit Sub
+        End If
+
+        Dim index_row, row_jml As Integer
+        If dgcash.Rows.Count > 0 Then
+            index_row = dgcash.CurrentCell.RowIndex
+        End If
+
+        'cek ada yang sama atau tidak
+        For i As Integer = 0 To dgprocess.Rows.Count - 1
+            If dgprocess.Item(0, i).Value = dgcash.Item(0, index_row).Value Then
+                Dim info As AlertInfo = New AlertInfo("Warning", "Data Sudah ada di daftar stok")
+                alertControl_warning.Show(MainMenu, info)
+                Exit Sub
+            End If
+        Next
+
+        dgprocess.Rows.Add(1)
+        If dgprocess.Rows.Count = 1 Then
+            dgprocess.CurrentCell = dgbank(0, 0)
+        End If
+        row_jml = dgprocess.Rows.GetLastRow(DataGridViewElementStates.Displayed)
+        dgprocess.Item(0, row_jml).Value = dgcash.Item(0, index_row).Value
+        dgprocess.Item(1, row_jml).Value = dgcash.Item(1, index_row).Value
+        dgprocess.Item(2, row_jml).Value = dgcash.Item(2, index_row).Value
+        dgprocess.Item(3, row_jml).Value = dgcash.Item(3, index_row).Value
+        dgprocess.Item(4, row_jml).Value = dgcash.Item(4, index_row).Value
+        dgprocess.Item(5, row_jml).Value = dgcash.Item(5, index_row).Value
+        dgprocess.Item(6, row_jml).Value = dgcash.Item(6, index_row).Value
+        dgprocess.Item(7, row_jml).Value = dgcash.Item(7, index_row).Value
+        dgprocess.Item(8, row_jml).Value = dgcash.Item(8, index_row).Value
+        dgprocess.Item(9, row_jml).Value = dgcash.Item(9, index_row).Value
+        dgprocess.CurrentCell = dgprocess(0, dgprocess.CurrentCell.RowIndex + 1)
+    End Sub
+
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+        open_conn()
+        Dim index_row As Integer
+        If dgprocess.Rows.Count > 0 Then
+            index_row = dgprocess.CurrentCell.RowIndex
+        End If
+        'dg_employee.Rows.Add(1)
+        'row_jml = dg_employee.Rows.GetLastRow(DataGridViewElementStates.Displayed)
+        'dg_employee.Item(0, row_jml).Value = dg_marketing.Item(0, index_row).Value
+        'dg_employee.Item(1, row_jml).Value = dg_marketing.Item(1, index_row).Value
+        'dg_employee.Item(2, row_jml).Value = dg_marketing.Item(2, index_row).Value
+        'dg_employee.Item(3, row_jml).Value = dg_marketing.Item(3, index_row).Value
+        'dg_employee.Item(4, row_jml).Value = dg_marketing.Item(4, index_row).Value
+        'dg_employee.Item(5, row_jml).Value = dg_marketing.Item(5, index_row).Value
+        'dg_employee.Item(6, row_jml).Value = dg_marketing.Item(6, index_row).Value
+        'dg_employee.Item(7, row_jml).Value = dg_marketing.Item(7, index_row).Value
+
+        dgprocess.Rows.RemoveAt(index_row)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As System.Object, e As System.EventArgs) Handles SimpleButton1.Click
+        open_conn()
+        process_cuci()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As System.Object, e As System.EventArgs) Handles SimpleButton2.Click
+        'dgprocess.Rows.Clear()
+        
+        If SimpleButton2.Text = "VIEW DALAM PROSES" Then
+            pesan = MsgBox("Data yang dipilih akan di hapus" & vbCrLf & "Apakah anda yakin ingin menampilkan data cucian dalam proses", MsgBoxStyle.YesNo)
+            If pesan = vbYes Then
+                view_data_cucianinprocess()
+            End If
+            SimpleButton2.Text = "KEMBALI KE PROSES CUCI"
+        ElseIf SimpleButton2.Text = "KEMBALI KE PROSES CUCI" Then
+            dgprocess.DataSource = Nothing
+            SimpleButton2.Text = "VIEW DALAM PROSES"
+        End If
     End Sub
 End Class
